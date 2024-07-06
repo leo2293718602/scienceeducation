@@ -10,5 +10,5 @@
     "noEmit": true
   },
   "include": ["vite.config.ts", "src/**/*",
-      "package.json"]
+      "package.json","src/**/*.ts"]
 }

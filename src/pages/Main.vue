@@ -94,7 +94,7 @@
       <img :src="caseItem.img" :alt="caseItem.title"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
     </div>
-    <h3 class="innertitle" style="text-align: center;">
+    <h3 class="innertitle" style="text-align:center;">
       <a style="background-color: #0456B5">&#8194;</a><a>&#8194</a>{{ caseItem.title }}</h3>
     <p style="margin-left: 2vh;color: #A6A6A6;">{{ caseItem.date }}</p>
   </div>
@@ -107,7 +107,7 @@
 </template>
 
 
-<script lang="ts" setup name="">
+<script lang="ts" setup name="MainPage">
 import { it } from 'node:test';
 import { ref, onMounted } from 'vue'
 const CenterDynamics = ref([
