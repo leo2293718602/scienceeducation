@@ -17,13 +17,32 @@ const breadcrumbs = ref<Array<{ text: string; path: string }>>([]);
 
 const updateBreadcrumbs = () => {
     const matchedRoutes = route.matched;
-    // 首先清空breadcrumbs数组，然后添加“首页”对象
-    breadcrumbs.value = [{ text: '首页', path: '/' }];
-    // 然后添加当前匹配的路由作为面包屑的其余部分
-    breadcrumbs.value = breadcrumbs.value.concat(matchedRoutes.map((record) => ({
-        text: record.meta.breadcrumb || record.name || 'Unknown',
-        path: record.path,
-    } as { text: string; path: string })));
+    // 检查是否当前路由是首页
+    const isHomeRoute = matchedRoutes.some(record => record.path === '/Main');
+
+    if (isHomeRoute) {
+        // 如果是首页，则清空之前的所有路由并只添加首页
+        breadcrumbs.value = [{ text: '首页', path: '/Main' }];
+    } else {
+        // 重置面包屑数组，并始终添加“首页”作为第一个项
+        breadcrumbs.value = [{ text: '首页', path: '/Main' }];
+
+        // 添加当前匹配的路由作为面包屑的其余部分
+        matchedRoutes.forEach((record) => {
+        if (record.path !== '/Main') { // 避免重复添加“首页”
+            const existingIndex = breadcrumbs.value.findIndex(breadcrumb => breadcrumb.path === record.path);
+            if (existingIndex === -1) {
+                breadcrumbs.value.push({
+                    text: (record.meta.breadcrumb?.toString() || record.name || 'Unknown').toString(),
+                    path: record.path,
+                });
+            } else {
+                
+                breadcrumbs.value.splice(existingIndex + 1, breadcrumbs.value.length - existingIndex - 1);
+            }
+        }
+    });
+    }
 };
 onMounted(() => {
     updateBreadcrumbs();
@@ -38,16 +57,16 @@ router.afterEach(() => {
 .breadcrumbs {
     margin: 3vh auto;
     font-size: 1.25rem;
-    color: #616060; /* 修改文字颜色为灰色 */
+    color: #616060; 
     text-decoration: none;
 }
 
 .breadcrumbs a {
-    color: #616060;/* 设置链接颜色为灰色 */
-    text-decoration: none; /* 移除下划线 */
+    color: #616060;
+    text-decoration: none;
 }
 
 .breadcrumbs a:hover {
-    color:#0456B5 /* 鼠标悬停时改变链接颜色为蓝色 */
+    color:#0456B5 
 }
 </style>

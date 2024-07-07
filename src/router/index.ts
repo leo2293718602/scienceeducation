@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Main from '../pages/Main.vue'
 import AboutCentre from '../pages/AboutCentre.vue'
+import CenterDynamics from '../pages/CenterDynamics.vue'
+import CenterDynamicsDetail from '../pages/CenterDynamicsDetail.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -21,7 +23,20 @@ const router = createRouter({
             path: '/AboutCentre',
             component: AboutCentre,
             meta: { breadcrumb: '中心简介' }
-        }
+        },
+        {
+            name: 'CenterDynamicsPage',
+            path: '/CenterDynamics',
+            component: CenterDynamics,
+            meta: { breadcrumb: '中心动态' }
+        },
+        {
+           
+            name:'CenterDynamicsDetailPage',
+            path:'/CenterDynamics/:id',
+            component:CenterDynamicsDetail,
+            meta: { breadcrumb: '中心动态' }
+        },
     ]
 })
 

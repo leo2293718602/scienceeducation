@@ -1,4 +1,5 @@
 <template>
+   <div class="background-layer"></div> 
   <img src="../../statics/页面2/banner.png" style="width: 100%;">
   <div style="display: flex">
     <bread />
@@ -80,7 +81,6 @@
     </div>
   </div>
 
-
   <div style="display: flex;margin-top: 4vh;">
     <h1 class="blue-bar">&thinsp;</h1>
     <h1 class="title">组织保障</h1>
@@ -103,15 +103,19 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted, onBeforeUnmount } from 'vue';
 import Bread from '../components/Bread.vue';
 </script>
 
 
-<style>
+<style scoped>
+.position-relative {
+  position: relative;
+}
+
 h1 {
   display: flex;
   align-items: center;
-  /* 确保内容垂直居中 */
 }
 
 .blue-bar {
@@ -143,7 +147,7 @@ h1 {
   margin-right: 2vh;
   padding: 3vh;
   width: 25vw;
-  height: 23vw;
+  background-color: white;
 }
 
 .box2 {
@@ -155,6 +159,7 @@ h1 {
   padding: 3vh;
   width: 32vw;
   height: 16vw;
+  background-color: white;
 }
 
 .tasktitle {
@@ -181,6 +186,24 @@ h1 {
   padding: 3vh;
   width: 15vw;
   height: 6vh;
-  border-radius: 2vh
+  border-radius: 2vh;
+  background-color: white;
+}
+.background-layer {
+  position: fixed; /* 或 absolute，取决于需求 */
+  top: 17vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../statics/页面2/标.jpg');
+  background-size: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* 仅背景透明 */
+  z-index: -1; /* 确保背景在内容之下 */
+}
+
+.content-layer {
+  position: relative; /* 确保内容在背景之上 */
 }
 </style>

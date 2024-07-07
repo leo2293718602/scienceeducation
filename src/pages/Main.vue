@@ -5,7 +5,7 @@
       <div style="display: flex;justify-content: space-between;">
         <div class="iconandtitle">
           <img src="../assets/UI_icon_工作动态.png">
-          <a class="title">中心动态</a>
+          <a class="title" @click="goToPage('CenterDynamicsPage')">中心动态</a>
         </div>
         <div class="more">
           更多>>
@@ -54,7 +54,7 @@
       </div>
 
       <div style="width: 57vh;margin-left: 3vh;"> <!--业务平台-->
-        <div class="iconandtitle" style="margin-left: 10vh">
+        <div class="iconandtitle" style="margin-left: 13vh">
           <img src="../assets/快速部署.png">
           <a class="title">业务平台</a>
         </div>
@@ -110,6 +110,7 @@
 <script lang="ts" setup name="MainPage">
 import { it } from 'node:test';
 import { ref, onMounted } from 'vue'
+import router from '../router/index'
 const CenterDynamics = ref([
   { title: '国家知识产权局专利局来校开展普法宣传活动', img: '../../statics/页面1/1.png' },
   { title: '经管学院:拓展交流渠道 提升国际合作', img: '../../statics/页面1/22.png' },
@@ -140,6 +141,14 @@ onMounted(() => {
     selectedItemImg.value = CenterDynamics.value[0].img; // 默认选中第一个  
   }
 });
+
+function goToPage(pageName: string) {
+  router.push(
+    {
+      name: pageName
+    }
+  )
+}
 </script>
 
 <style>
@@ -147,6 +156,10 @@ onMounted(() => {
   font-size: 4vh;
   margin-left: 2vh;
   font-weight: 400;
+  cursor: pointer;
+}
+.title:hover {
+  color: #0456B5;
 }
 
 .iconandtitle,

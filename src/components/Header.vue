@@ -1,7 +1,7 @@
 <template>
   <div class="header-sticky">
     <div
-      style="display: flex;justify-content: space-between;align-items: center;margin-top: 1vh;height: 25vh;background-color: white">
+      style="display: flex;justify-content: space-between;align-items: center;height: 25vh;background-color: white">
       <div style="display: flex;float: inline-start;">
         <div class="icon"><img src="../assets/标.png" alt="logo" style="height: 15vh;"></div>
         <div>
@@ -26,7 +26,8 @@
           </li>
           <li><a class="routes" :class="{ 'selected': activePage === 'AboutCentrePage' }"
               @click="goToPage('AboutCentrePage')">中心简介</a></li>
-          <li><a class="routes">中心动态</a></li>
+          <li><a class="routes" :class="{ 'selected': activePage === 'CenterDynamicsPage' }"
+            @click="goToPage('CenterDynamicsPage')">中心动态</a></li>
           <li><a class="routes">理论研究</a></li>
           <li><a class="routes">课题申报</a></li>
           <li><a class="routes">经验推广</a></li>
@@ -40,10 +41,13 @@
 </template>
 
 <script lang="ts" setup name="">
-import { onMounted, ref,watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import router from '../router/index';
+import { useStore } from 'vuex';
+
 const activePage = ref('MainPage');
+const store = useStore();
 const route = useRoute();
 
 onMounted(() => {
@@ -52,11 +56,18 @@ onMounted(() => {
     activePage.value = savedPage;
   }
 });
-watch(() => route.name, (newRouteName) => {
-    if (newRouteName) {
-        activePage.value = newRouteName.toString();
-        localStorage.setItem('activePage', newRouteName.toString());
-    }
+watch(() => route.path, (newPath) => {
+  // 假设你的路由结构是 /parent/child，你想要在访问 /parent/child 时保持 /parent 被选中
+  // 可以通过检查 newPath 是否以 /parent 开头来实现
+  const baseRoute = '/parent'; // 假设你想要保持选中的路由
+  const homeRoute = '/Main'; // 假设首页的路由是 '/'
+  if (newPath.startsWith(baseRoute)) {
+      activePage.value = baseRoute; // 保持 /parent 被选中
+      localStorage.setItem('activePage', baseRoute);
+  } else if (newPath === homeRoute) {
+      activePage.value = 'MainPage'; // 假设 'HomePage' 是首页的标识
+      localStorage.setItem('activePage', 'MainPage');
+  }
 });
 
 function goToPage(pageName: string) {
