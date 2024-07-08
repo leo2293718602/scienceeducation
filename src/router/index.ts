@@ -4,6 +4,7 @@ import Main from '../pages/Main.vue'
 import AboutCentre from '../pages/AboutCentre.vue'
 import CenterDynamics from '../pages/CenterDynamics.vue'
 import CenterDynamicsDetail from '../pages/CenterDynamicsDetail.vue'
+import Research from '../pages/Research.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -37,6 +38,12 @@ const router = createRouter({
             component:CenterDynamicsDetail,
             meta: { breadcrumb: '中心动态' }
         },
+        {
+            name: 'ResearchPage',
+            path: '/Research',
+            component: Research,
+            meta: { breadcrumb:'理论研究' }
+        }
     ]
 })
 

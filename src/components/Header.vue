@@ -28,7 +28,8 @@
               @click="goToPage('AboutCentrePage')">中心简介</a></li>
           <li><a class="routes" :class="{ 'selected': activePage === 'CenterDynamicsPage' }"
             @click="goToPage('CenterDynamicsPage')">中心动态</a></li>
-          <li><a class="routes">理论研究</a></li>
+          <li><a class="routes" :class="{'selected':activePage==='ResearchPage'} "
+            @click="goToPage('ResearchPage')">理论研究</a></li>
           <li><a class="routes">课题申报</a></li>
           <li><a class="routes">经验推广</a></li>
           <li><a class="routes">师资培训</a></li>
@@ -57,9 +58,7 @@ onMounted(() => {
   }
 });
 watch(() => route.path, (newPath) => {
-  // 假设你的路由结构是 /parent/child，你想要在访问 /parent/child 时保持 /parent 被选中
-  // 可以通过检查 newPath 是否以 /parent 开头来实现
-  const baseRoute = '/parent'; // 假设你想要保持选中的路由
+  const baseRoute = '/parent'; 
   const homeRoute = '/Main'; // 假设首页的路由是 '/'
   if (newPath.startsWith(baseRoute)) {
       activePage.value = baseRoute; // 保持 /parent 被选中
