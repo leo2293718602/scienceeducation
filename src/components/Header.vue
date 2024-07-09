@@ -30,7 +30,8 @@
             @click="goToPage('CenterDynamicsPage')">中心动态</a></li>
           <li><a class="routes" :class="{'selected':activePage==='ResearchPage'} "
             @click="goToPage('ResearchPage')">理论研究</a></li>
-          <li><a class="routes">课题申报</a></li>
+            <li><a class="routes" :class="{'selected':activePage==='ProjectDecPage'} "
+              @click="goToPage('ProjectDecPage')">课题申报</a></li>
           <li><a class="routes">经验推广</a></li>
           <li><a class="routes">师资培训</a></li>
           <li><a class="routes">成效监测</a></li>
