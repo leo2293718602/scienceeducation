@@ -151,7 +151,7 @@ function goToPage(pageName: string) {
 }
 </script>
 
-<style>
+<style scoped>
 .title {
   font-size: 4vh;
   margin-left: 2vh;

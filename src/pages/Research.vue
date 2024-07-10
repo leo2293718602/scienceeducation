@@ -117,7 +117,7 @@ import Bread from '../components/Bread.vue';
 
 </script>
 
-<style>
+<style scoped>
 .background-layer {
   position: fixed;
   top: 17vh;

@@ -6,6 +6,7 @@ import CenterDynamics from '../pages/CenterDynamics.vue'
 import CenterDynamicsDetail from '../pages/CenterDynamicsDetail.vue'
 import Research from '../pages/Research.vue'
 import ProjectDec from '../pages/ProjectDec.vue'
+import ExpPromo from '../pages/ExpPromo.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -33,23 +34,29 @@ const router = createRouter({
             meta: { breadcrumb: '中心动态' }
         },
         {
-           
-            name:'CenterDynamicsDetailPage',
-            path:'/CenterDynamics/:id',
-            component:CenterDynamicsDetail,
+
+            name: 'CenterDynamicsDetailPage',
+            path: '/CenterDynamics/:id',
+            component: CenterDynamicsDetail,
             meta: { breadcrumb: '中心动态' }
         },
         {
             name: 'ResearchPage',
             path: '/Research',
             component: Research,
-            meta: { breadcrumb:'理论研究' }
+            meta: { breadcrumb: '理论研究' }
         },
         {
             name: 'ProjectDecPage',
             path: '/ProjectDec',
             component: ProjectDec,
             meta: { breadcrumb: '课题申报' }
+        },
+        {
+            name: 'ExpPromoPage',
+            path: '/ExpPromo',
+            component: ExpPromo,
+            meta: { breadcrumb: '经验推广' }
         }
     ]
 })

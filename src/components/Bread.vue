@@ -34,7 +34,7 @@ onMounted(generateBreadcrumbs);
 watch(route, generateBreadcrumbs);
 </script>
 
-<style>
+<style scoped>
 .breadcrumbs {
     margin: 3vh auto;
     font-size: 1.25rem;

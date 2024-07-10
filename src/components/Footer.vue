@@ -10,7 +10,7 @@
   
 </script>
 
-<style>
+<style scoped>
 .foot{
    background-color: #0456B5;
    display: flex;
