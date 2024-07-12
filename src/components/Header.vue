@@ -34,7 +34,8 @@
               @click="goToPage('ProjectDecPage')">课题申报</a></li>
               <li><a class="routes" :class="{'selected':activePage==='ExpPromoPage'} "
                 @click="goToPage('ExpPromoPage')">经验推广</a></li>
-          <li><a class="routes">师资培训</a></li>
+                <li><a class="routes" :class="{'selected':activePage==='TeacherTrianPage'} "
+                  @click="goToPage('TeacherTrianPage')">师资培训</a></li>
           <li><a class="routes">成效监测</a></li>
           <li><a class="routes">共享资源</a></li>
         </ul>

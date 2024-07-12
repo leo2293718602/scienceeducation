@@ -1,4 +1,5 @@
 <template>
+  <div class="background-layer"></div>
   <img src="../../statics/页面4/分组 1 (1).png" style="width: 100%;">
   <div style="display: flex;">
     <Bread />
@@ -170,6 +171,7 @@ function scrollToCenter(id: string) {
   /* 调整为合适的尺寸 */
   height: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .task-details {
@@ -223,12 +225,14 @@ function scrollToCenter(id: string) {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  
 }
 
 .teacher {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 2vh;
+  background-color: white;
 }
 
 .teacher-info {
@@ -264,5 +268,18 @@ function scrollToCenter(id: string) {
 .more:hover{
   color:#0456B5;
   cursor: pointer;
+}
+.background-layer {
+  position: fixed;
+  top: 17vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../statics/页面2/标.jpg');
+  background-size: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: -1;
 }
 </style>

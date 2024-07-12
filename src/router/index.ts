@@ -7,6 +7,8 @@ import CenterDynamicsDetail from '../pages/CenterDynamicsDetail.vue'
 import Research from '../pages/Research.vue'
 import ProjectDec from '../pages/ProjectDec.vue'
 import ExpPromo from '../pages/ExpPromo.vue'
+import TeacherTrian from '../pages/TeacherTrian.vue'
+import TrainCourses from '../pages/TrainCourses.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -57,6 +59,20 @@ const router = createRouter({
             path: '/ExpPromo',
             component: ExpPromo,
             meta: { breadcrumb: '经验推广' }
+        },
+        {
+            name: 'TeacherTrianPage',
+            path: '/TeacherTrian',
+            component: TeacherTrian,
+            meta: { breadcrumb: '师资培训' },
+            children: [
+                {
+                    name: 'TrainCoursesPage',
+                    path: 'TrainCourses',
+                    component: TrainCourses,
+                    meta: { breadcrumb: '培训课程' }
+                }
+            ]
         }
     ]
 })
