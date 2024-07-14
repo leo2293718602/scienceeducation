@@ -1,41 +1,48 @@
 <template>
   <div>
-    <div class="button-row">
-      <button class="mybutton" v-for="filter in firstRowFilters" :key="filter.id" :class="{ selected: filter.selected }"
-        @click="toggleSelection(filter.id, 'firstRow')">
-        {{ filter.name }}
-      </button>
-    </div>
-    <div class="button-row">
-      <button class="mybutton" v-for="filter in secondRowFilters" :key="filter.id"
-        :class="{ selected: filter.selected }" @click="toggleSelection(filter.id, 'secondRow')">
-        {{ filter.name }}
-      </button>
-    </div>
-  </div>
-  <div class="videos-container">
-    <div class="video-row" v-for="(chunk, index) in chunkedVideos" :key="index">
-      <div class="video" v-for="video in chunk" :key="video.id">
-        <img :src="video.img" :alt="video.title" class="video-img">
-        <h3>{{ video.title }}</h3>
-        <p>{{ video.content }}</p>
-        <div style="display: flex;justify-content:left ;">
-          <div style="display: flex; align-items: center;">
-            <img src="../../statics/页面9/眼睛.png" style="width: 3vh;height: 2vh;margin-left: 3vh;vertical-align: middle;">
-            <p> {{ video.watched }}</p>
-          </div>
-          <div style="display: flex; align-items: center;">
-            <img src="../../statics/页面9/点赞.png" style="width: 3vh;height:3vh;margin-left: 2vh;vertical-align: middle;">
-            <p>{{ video.liked }}</p>
+    <!-- 当路由为videospage时，只显示router-view -->
+    <router-view v-if="$route.name === 'VideosPage'"></router-view>
+
+    <!-- 当路由不是videospage时，显示其他内容 -->
+    <template v-else>
+      <div class="button-row">
+        <button class="mybutton" v-for="filter in firstRowFilters" :key="filter.id" :class="{ selected: filter.selected }"
+          @click="toggleSelection(filter.id, 'firstRow')">
+          {{ filter.name }}
+        </button>
+      </div>
+      <div class="button-row">
+        <button class="mybutton" v-for="filter in secondRowFilters" :key="filter.id"
+          :class="{ selected: filter.selected }" @click="toggleSelection(filter.id, 'secondRow')">
+          {{ filter.name }}
+        </button>
+      </div>
+      <div class="videos-container">
+        <div class="video-row" v-for="(chunk, index) in chunkedVideos" :key="index">
+          <div class="video" v-for="video in chunk" :key="video.id" @click="navigateToVideoPage(video.id)">
+            <img :src="video.img" :alt="video.title" class="video-img">
+            <h3>{{ video.title }}</h3>
+            <p>{{ video.content }}</p>
+            <div style="display: flex;justify-content:left ;">
+              <div style="display: flex; align-items: center;">
+                <img src="../../statics/页面9/眼睛.png" style="width: 3vh;height: 2vh;margin-left: 3vh;vertical-align: middle;">
+                <p> {{ video.watched }}</p>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <img src="../../statics/页面9/点赞.png" style="width: 3vh;height:3vh;margin-left: 2vh;vertical-align: middle;">
+                <p>{{ video.liked }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 const firstRowFilters = ref([
   { id: 1, name: '人气排序', selected: false },
@@ -71,17 +78,21 @@ const toggleSelection = (id: number, row: string) => {
     videos.value.sort((a, b) => a.id - b.id);
   }
 }
+const router = useRouter();
+const navigateToVideoPage = (id: number) => {
+  router.push({ name: 'VideosPage', params: { id: id.toString() } });
+}
 const videos = ref([
-  { id: 1, date: '2024-1-1', title: '【说课】科教版三年级下《茧种钻出了dasdsadasdsadasd...dadwdzDsada》', watched: 251, liked: 15, content: '本视频是关于视频是关于科视频关于科视频是v是关于科科教版三年级下《茧种钻dasdsadasdasdsadaasddasdsadasdsadsadsaas出了..dsadsada.dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-1.png' },
-  { id: 2, date: '2024-1-12', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 123, liked: 5, content: '本视频是关于科教版三年级下《茧种钻出了dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-2.png' },
-  { id: 3, date: '2024-1-11', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》rwredasdasdasdaswrewrwe', watched: 121, liked: 1521, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-3.png' },
-  { id: 4, date: '2024-1-9', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 232151, liked: 152, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-4.png' },
-  { id: 5, date: '2024-1-8', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 23251, liked: 1532312, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-5.png' },
-  { id: 6, date: '2024-1-7', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 23231, liked: 15321, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-6.png' },
-  { id: 7, date: '2024-1-6', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 251, liked: 1, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-7.png' },
-  { id: 8, date: '2024-1-5', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 2251, liked: 112, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-8.png' },
-  { id: 9, date: '2024-1-4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 2351, liked: 1325, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-9.png' },
-  { id: 10, date: '2024-1-3', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 1, liked: 1533, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-1.png' },
+    { id: 1, type: '1', date: '2024-1-1', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了dasdsadasdsadasd...dadwdzDsada》', watched: 251, liked: 15, content: '本视频是关于视频是关于科视频关于科视频是v是关于科科教版三年级下《茧种钻dasdsadasdasdsadaasddasdsadasdsadsadsaas出了..dsadsada.dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-1.png' },
+    { id: 2, type: '2', date: '2024-1-12', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 123, liked: 5, content: '本视频是关于科教版三年级下《茧种钻出了dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-2.png' },
+    { id: 3, type: '2', date: '2024-1-11', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》rwredasdasdasdaswrewrwe', watched: 121, liked: 1521, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-3.png' },
+    { id: 4, type: '1', date: '2024-1-9', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 232151, liked: 152, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-4.png' },
+    { id: 5, type: '2', date: '2024-1-8', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 23251, liked: 1532312, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-5.png' },
+    { id: 6, type: '1', date: '2024-1-7', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 23231, liked: 15321, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-6.png' },
+    { id: 7, type: '1', date: '2024-1-6', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 251, liked: 1, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-7.png' },
+    { id: 8, type: '1', date: '2024-1-5', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 2251, liked: 112, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-8.png' },
+    { id: 9, type: '1', date: '2024-1-4', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 2351, liked: 1325, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-9.png' },
+    { id: 10, type: '1', date: '2024-1-3', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 1, liked: 1533, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-1.png' },
 ])
 const chunkedVideos = computed(() => {
   const result = [];

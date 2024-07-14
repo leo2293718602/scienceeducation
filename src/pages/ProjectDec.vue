@@ -38,7 +38,9 @@
             </div>
         </div>
         <div>
-            <h1 class="custom-underline">申报通知</h1>
+            <h1 class="custom-underline">
+                <span class="underline-text">申报通知</span>
+            </h1>
         </div>
         <div>
             <div v-for="(notice, index) in paginatedNotices" :key="index">
@@ -163,13 +165,13 @@ function noticesss() {
     font-size: 4vh;
     color: #0456B5;
     padding-bottom: 0.5vh;
-    /* 调整下划线与文字之间的距离 */
-    border-bottom: 0.5vh solid #0456B5;
-    /* 加粗的下划线 */
-    text-decoration: none;
-    /* 移除原有的下划线 */
-    width: 8.3vw;
+    /* 移除原有的下划线样式 */
     margin-bottom: 5vh;
+}
+
+.underline-text {
+    border-bottom: 0.5vh solid #0456B5; /* 加粗的下划线 */
+    text-decoration: none; /* 移除原有的下划线 */
 }
 
 .pagination button,

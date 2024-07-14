@@ -18,8 +18,7 @@ const generateBreadcrumbs = () => {
     let breadcrumbText = record.meta.breadcrumb as string;
     // 检查是否为 CenterDynamicsDetailPage 路由
     if (record.name === 'CenterDynamicsDetailPage') {
-      // 假设你有方式获取当前文章的标题或ID，这里只是一个示例
-      const articleTitle = "文章阅读"; // 这里应该替换为动态获取的标题或ID
+      const articleTitle = "文章阅读";
       breadcrumbText += `/ ${articleTitle}`;
     }
     const path = record.path;

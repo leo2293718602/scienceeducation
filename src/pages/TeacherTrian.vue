@@ -170,7 +170,7 @@ function scrollToCenter(id: string) {
     }
 }
 const route = useRoute();
-const showLayout = computed(() => route.name !== 'TrainCoursesPage');
+const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.name !== 'VideosPage');
 </script>
 
 <style>

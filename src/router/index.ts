@@ -9,6 +9,7 @@ import ProjectDec from '../pages/ProjectDec.vue'
 import ExpPromo from '../pages/ExpPromo.vue'
 import TeacherTrian from '../pages/TeacherTrian.vue'
 import TrainCourses from '../pages/TrainCourses.vue'
+import Videos from '../pages/Videos.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -70,7 +71,15 @@ const router = createRouter({
                     name: 'TrainCoursesPage',
                     path: 'TrainCourses',
                     component: TrainCourses,
-                    meta: { breadcrumb: '培训课程' }
+                    meta: { breadcrumb: '培训课程' },
+                    children: [
+                        {
+                            name: 'VideosPage',
+                            path: 'Videos/:id',
+                            component: Videos,
+                            meta: { breadcrumb: '视频' }
+                        }
+                    ]
                 }
             ]
         }
