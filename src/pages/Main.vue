@@ -108,7 +108,6 @@
 
 
 <script lang="ts" setup name="MainPage">
-import { it } from 'node:test';
 import { ref, onMounted } from 'vue'
 import router from '../router/index'
 const CenterDynamics = ref([
@@ -130,9 +129,9 @@ const Release = ref([
   { title: '浙江省教育厅等十四部门关于加强新时代中小...', date: '01-23' },
 ])
 const GreatCases = ref([
-  { title: '教育部启动首批全国中小学科学教育实验区实验校建设', date: '2023-12-25', img: '../../statics/页面1/2.png' },
-  { title: '浙江宁波创建“4321”工作体系 推动区域科学教育高品质发展', date: '2024-01-23', img: '../../statics/页面1/4.webp' },
-  { title: '打造高质量科学教育，“科学素养提升行动发布会在杭州市春晖小学举行', date: '2024-02-22', img: '../../statics/页面1/5.jpg' },
+  { title: '教育部启动首批全国中小学科学教育实验区实验校建设', date: '2023-12-25', img: '/statics/页面1/2.png' },
+  { title: '浙江宁波创建“4321”工作体系 推动区域科学教育高品质发展', date: '2024-01-23', img: '/statics/页面1/4.webp' },
+  { title: '打造高质量科学教育，“科学素养提升行动发布会在杭州市春晖小学举行', date: '2024-02-22', img: '/statics/页面1/5.jpg' },
 
 ])
 const selectedItemImg = ref('');

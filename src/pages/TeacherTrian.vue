@@ -79,7 +79,6 @@
 <script lang="ts" setup>
 import Bread from '../components/Bread.vue';
 import { ref ,computed} from 'vue';
-import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 const courses = ref([

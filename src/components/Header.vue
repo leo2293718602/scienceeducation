@@ -48,10 +48,8 @@
 import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import router from '../router/index';
-import { useStore } from 'vuex';
 
 const activePage = ref('MainPage');
-const store = useStore();
 const route = useRoute();
 
 onMounted(() => {
