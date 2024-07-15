@@ -48,7 +48,6 @@ watch(route, generateBreadcrumbs);
 .breadcrumbs a,
 .breadcrumbs span {
   display: inline-block;
-  /* 或者 'inline-flex'，取决于你的布局需求 */
 }
 
 .breadcrumbs a:hover {
@@ -57,9 +56,7 @@ watch(route, generateBreadcrumbs);
 
 .breadcrumb-item::after {
   content: " /";
-  /* 在每一项后添加斜杠 */
   color: #616060;
-  /* 斜杠的颜色，根据需要调整 */
 }
 
 .breadcrumb-item:last-child::after {

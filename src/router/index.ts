@@ -10,6 +10,7 @@ import ExpPromo from '../pages/ExpPromo.vue'
 import TeacherTrian from '../pages/TeacherTrian.vue'
 import TrainCourses from '../pages/TrainCourses.vue'
 import Videos from '../pages/Videos.vue'
+import ShareResource from '../pages/ShareResource.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -77,11 +78,17 @@ const router = createRouter({
                             name: 'VideosPage',
                             path: 'Videos/:id',
                             component: Videos,
-                            meta: { breadcrumb: '视频' }
+                            meta: { breadcrumb: '视频播放' }
                         }
                     ]
                 }
             ]
+        },
+        {
+            name: 'ShareResourcePage',
+            path: '/ShareResource',
+            component: ShareResource,
+            meta: { breadcrumb: '共享资源' }
         }
     ]
 })

@@ -1,7 +1,6 @@
 <template>
   <div class="header-sticky">
-    <div
-      style="display: flex;justify-content: space-between;align-items: center;height: 25vh;background-color: white">
+    <div style="display: flex;justify-content: space-between;align-items: center;height: 25vh;background-color: white">
       <div style="display: flex;float: inline-start;">
         <div class="icon"><img src="../assets/标.png" alt="logo" style="height: 15vh;"></div>
         <div>
@@ -27,17 +26,18 @@
           <li><a class="routes" :class="{ 'selected': activePage === 'AboutCentrePage' }"
               @click="goToPage('AboutCentrePage')">中心简介</a></li>
           <li><a class="routes" :class="{ 'selected': activePage === 'CenterDynamicsPage' }"
-            @click="goToPage('CenterDynamicsPage')">中心动态</a></li>
-          <li><a class="routes" :class="{'selected':activePage==='ResearchPage'} "
-            @click="goToPage('ResearchPage')">理论研究</a></li>
-            <li><a class="routes" :class="{'selected':activePage==='ProjectDecPage'} "
+              @click="goToPage('CenterDynamicsPage')">中心动态</a></li>
+          <li><a class="routes" :class="{ 'selected': activePage === 'ResearchPage' }"
+              @click="goToPage('ResearchPage')">理论研究</a></li>
+          <li><a class="routes" :class="{ 'selected': activePage === 'ProjectDecPage' }"
               @click="goToPage('ProjectDecPage')">课题申报</a></li>
-              <li><a class="routes" :class="{'selected':activePage==='ExpPromoPage'} "
-                @click="goToPage('ExpPromoPage')">经验推广</a></li>
-                <li><a class="routes" :class="{'selected':activePage==='TeacherTrianPage'} "
-                  @click="goToPage('TeacherTrianPage')">师资培训</a></li>
+          <li><a class="routes" :class="{ 'selected': activePage === 'ExpPromoPage' }"
+              @click="goToPage('ExpPromoPage')">经验推广</a></li>
+          <li><a class="routes" :class="{ 'selected': activePage === 'TeacherTrianPage' }"
+              @click="goToPage('TeacherTrianPage')">师资培训</a></li>
           <li><a class="routes">成效监测</a></li>
-          <li><a class="routes">共享资源</a></li>
+          <li><a class="routes" :class="{ 'selected': activePage === 'ShareResourcePage' }"
+              @click="goToPage('ShareResourcePage')">资源共享</a></li>
         </ul>
       </nav>
     </div>
@@ -61,14 +61,14 @@ onMounted(() => {
   }
 });
 watch(() => route.path, (newPath) => {
-  const baseRoute = '/parent'; 
+  const baseRoute = '/parent';
   const homeRoute = '/Main'; // 假设首页的路由是 '/'
   if (newPath.startsWith(baseRoute)) {
-      activePage.value = baseRoute; // 保持 /parent 被选中
-      localStorage.setItem('activePage', baseRoute);
+    activePage.value = baseRoute; // 保持 /parent 被选中
+    localStorage.setItem('activePage', baseRoute);
   } else if (newPath === homeRoute) {
-      activePage.value = 'MainPage'; // 假设 'HomePage' 是首页的标识
-      localStorage.setItem('activePage', 'MainPage');
+    activePage.value = 'MainPage'; // 假设 'HomePage' 是首页的标识
+    localStorage.setItem('activePage', 'MainPage');
   }
 });
 
