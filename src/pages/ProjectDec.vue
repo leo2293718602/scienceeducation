@@ -37,13 +37,13 @@
                 <span class="underline-text">申报通知</span>
             </h1>
         </div>
-        <div style="box-shadow: 0 0 0.5vh 0.3vh #eae9e9;background-color: white;width: 90vw;margin: 0 auto; border: 0.1vh solid #a6a6a6;">
+        <div style="box-shadow: 2px 2px 2px rgb(183, 183, 183);background-color: white;width: 90vw;margin: 0 auto; border: 0.1vh solid #a6a6a6;">
             <div v-for="(notice, index) in paginatedNotices" :key="index">
                 <!-- 显示notice的内容 -->
                 <div style="display: flex;margin-left: 5vh;font-size: 3.5vh;line-height: 3vh;cursor: pointer;"
                     @click="noticesss">
-                    <p style="color: black;width: 3%;"> {{ index + 1 }}.</p>
-                    <p style="width: 72%;color:black;">{{ notice.title }}</p>
+                    <p style="width: 3%"> {{ index + 1 }}.</p>
+                    <p class="noticeblue" style="width: 72%">{{ notice.title }}</p>
                     <p style="width: 10%;">{{ notice.from }}</p>
                     <p style="color:#a6a6a6">{{ notice.time }}</p>
                 </div>
@@ -132,24 +132,23 @@ function noticesss() {
 <style scoped>
 .box {
 
-    border: 0.1vh solid #a6a6a6;
+    border: 0.2vh solid #d4d4d4;
     padding: 3vh 1vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgb(183, 183, 183);
     background-color: white;
 }
 
 .box2 {
-    border: 0.1vh solid #a6a6a6;
+    border: 0.2vh solid #d4d4d4;
     padding: 3vh 1vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgb(183, 183, 183);
     background-color: white;
     cursor: pointer;
 }
 
 .innerbox {
-    border: 0.1vh solid#a6a6a6;
+    border: 0.2vh solid#d4d4d4;
     padding: 2vh 7vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: white;
     cursor: pointer;
     margin-top: 4vh
@@ -171,7 +170,6 @@ function noticesss() {
 
 .pagination button,
 .pagination .page-number {
-    background-color: #f5f5f5;
     border: 1px solid #ddd;
     color: #333;
     padding: 5px 10px;
@@ -251,6 +249,11 @@ function noticesss() {
 .box2:hover {
     transform: scale(1.1);
     transition: 0.3s;
-    background-color: #a6a6a6
+    background-color: #a6a6a6;
+    
+}
+.noticeblue:hover{
+    color: #0456B5;
+    transition: 0.3s;
 }
 </style>

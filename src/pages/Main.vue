@@ -47,7 +47,7 @@
                 <div class="innertitle" style="margin:0;">{{ item.title }}
                 </div>
               </div>
-              <a style="margin-right: 1vh;color:#A6A6A6">{{ item.date }}</a>
+              <a style="margin-right: 1vw;color:#A6A6A6;font-size: 2.5vh;">{{ item.date }}</a>
             </div>
           </div>
         </div>
@@ -89,18 +89,18 @@
       </div>
       <div style="display: flex; width: 100%; justify-content: space-between; margin-top: 3vh;margin-bottom: 6vh;">
         <div v-for="(caseItem, index) in GreatCases.slice(0, 3)" :key="index"
-          :style="{ flex: '1', marginRight: index < 2 ? '2%' : '0', boxSizing: 'border-box', padding: '20px', margin: '10px', backgroundColor: '#fff', boxShadow: '0 4px 4px rgba(0,0,0,0.1)' }">
+          :style="{ flex: '1', marginRight: index < 2 ? '2%' : '0', boxSizing: 'border-box', padding: '20px', margin: '10px', backgroundColor: '#fff', boxShadow: '1px 2px 2px 1.5px rgb(183, 183, 183)' }">
           <div style="position: relative; width: 100%; padding-top: 80%;"><!-- 保持方形 -->
             <img :src="caseItem.img" :alt="caseItem.title"
               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
           </div>
-          <div style="display: flex;justify-content: center;">
-            <a style="background-color: #0456B5;height: 2.5vh;margin-top: 3vh;width: 0.5vh;margin-right: 1.5vh;margin-left: 1vh;">&#8194;</a>
+          <div style="display: flex;justify-content: center;margin-top: 3vh;">
+            <a style="background-color: #0456B5;height: 2.5vh;margin-top: 0.5vh;width: 0.5vh;margin-right: 1.5vh;margin-left: 1vh;">&#8194;</a>
             <h3 class="innertitle" style="text-align:left;">
             {{ caseItem.title }}
             </h3>
           </div>
-          <p style="margin-left: 2vh;color: #A6A6A6;">{{ caseItem.date }}</p>
+          <p style="margin-left: 1vh;color: #A6A6A6;font-size: 2.5vh">{{ caseItem.date }}</p>
         </div>
       </div>
     </div>
@@ -185,7 +185,7 @@ function goToPage(pageName: string) {
   margin-top: 2vh;
   padding: 3vh;
   border: 0.1vh solid #F5F5F5;
-  box-shadow: 2px 2px 2px rgb(183, 183, 183);
+  box-shadow:1px 2px 2px 1.5px rgb(183, 183, 183);
 }
 
 .news {
@@ -197,7 +197,7 @@ function goToPage(pageName: string) {
 .icons {
   margin-right: 2vh;
   height: 5vh;
-  margin-left: 3vh;
+  margin-left: 0.8vw;
 }
 
 .innertitle {

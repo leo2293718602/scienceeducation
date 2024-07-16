@@ -156,6 +156,7 @@ function goToArticle(id: number) {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 0 0.5vh 0.3vh #eae9e9;
+    cursor: pointer;
 }
 
 .articles>div {
@@ -169,7 +170,7 @@ function goToArticle(id: number) {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 0 0.5vh 0.3vh #eae9e9;
+    box-shadow:1px 1px 0px 1.5px rgb(183, 183, 183);
     margin-bottom: 6vh;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -253,10 +254,10 @@ function goToArticle(id: number) {
   width: 100%;
   height: 100%;
   background-image: url('../../statics/页面2/标.jpg');
-  background-size: 80vh;
+  background-size: 110vh;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.3; 
+  opacity: 0.2; 
   z-index: -1; 
 }
 

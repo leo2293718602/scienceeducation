@@ -148,7 +148,7 @@ const chunkedVideos = computed(() => {
   text-align: center;
   margin: 2vh;
   width: 30%;
-  box-shadow: 0 0 1vh 0.3vh #eae9e9;
+  box-shadow: 2px 2px 2px rgb(183, 183, 183);
   margin-left: 3vh;
   cursor: pointer;
 }

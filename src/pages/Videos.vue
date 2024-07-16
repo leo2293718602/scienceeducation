@@ -107,7 +107,8 @@ watch(() => route.params.id, (newId) => {
 
 .video-player {
     flex: 3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgb(183, 183, 183);
+    border: #e8e7e7 solid 1px;
     padding: 3vh;
     height: 84vh;
 }
@@ -141,7 +142,8 @@ watch(() => route.params.id, (newId) => {
     flex-direction: column;
     width: 40vw;
     margin-left: 2vw;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px rgb(183, 183, 183);
+    border: #e8e7e7 solid 1px;
 }
 
 .video {

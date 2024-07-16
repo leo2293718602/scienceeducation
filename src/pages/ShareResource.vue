@@ -28,7 +28,7 @@
               <a style="font-size: 4vh; margin-left: 10px;">党史学习</a>
             </div>
             <div>
-              <a style="font-size: 2vh;">更多 >></a>
+              <a style="font-size: 1.5vh;">更多 >></a>
             </div>
           </div>
           <div>
@@ -67,7 +67,7 @@
               <a style="font-size: 4vh; margin-left: 10px;">爱国主义</a>
             </div>
             <div>
-              <a style="font-size: 2vh;">更多 >></a>
+              <a style="font-size: 1.5vh;">更多 >></a>
             </div>
           </div>
           <div>
@@ -106,7 +106,7 @@
               <a style="font-size: 4vh; margin-left: 10px;">品德教育</a>
             </div>
             <div>
-              <a style="font-size: 2vh;">更多 >></a>
+              <a style="font-size:1.5vh;">更多 >></a>
             </div>
           </div>
           <div>
@@ -145,7 +145,7 @@
               <a style="font-size: 4vh; margin-left: 10px;">传统优秀文化</a>
             </div>
             <div>
-              <a style="font-size: 2vh;">更多 >></a>
+              <a style="font-size: 1.5vh;">更多 >></a>
             </div>
           </div>
           <div>
@@ -184,7 +184,7 @@
               <a style="font-size: 4vh; margin-left: 10px;">心理健康</a>
             </div>
             <div>
-              <a style="font-size: 2vh;">更多 >></a>
+              <a style="font-size: 1.5vh;">更多 >></a>
             </div>
           </div>
           <div>
@@ -223,7 +223,7 @@
               <a style="font-size: 4vh; margin-left: 10px;">生态文明</a>
             </div>
             <div>
-              <a style="font-size: 2vh;">更多 >></a>
+              <a style="font-size: 1.5vh;">更多 >></a>
             </div>
           </div>
           <div>

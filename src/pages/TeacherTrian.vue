@@ -60,7 +60,7 @@
                                         class="blue-block"></span>下载专区</a>
                                 <a class="more" style="vertical-align: center;"> 更多>></a>
                             </div>
-                            <div style="box-shadow: 0 0 1vh 0.3vh #eae9e9;padding-left: 3vh;margin-bottom: 10vh;">
+                            <div style=" box-shadow: 1px 2px 2px 2px rgb(183, 183, 183);padding-left: 3vh;margin-bottom: 10vh;">
                                 <div class="downloads-grid" v-for="(download, index) in downloads.slice(0, 6)"
                                     :key="index">
                                     <div style="display: flex;justify-content: left">
@@ -252,7 +252,7 @@ const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.nam
 }
 
 .notices-grid {
-    box-shadow: 0 0 1vh 0.3vh #eae9e9;
+    box-shadow:1px 2px 2px 1px rgb(183, 183, 183);
     padding: 3vh;
     margin-bottom: 3vh;
 }

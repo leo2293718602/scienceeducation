@@ -140,7 +140,7 @@ h1 {
 .box1 {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0.5vh 0.3vh #eae9e9;
+  box-shadow: 0 0 0.5vh 0.2vh #b6b6b6;
   margin-top: 3vh;
   margin-left: 2vh;
   /* 减少左右间距 */
@@ -153,7 +153,7 @@ h1 {
 .box2 {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0.5vh 0.3vh #eae9e9;
+  box-shadow: 0 0 0.5vh 0.2vh #b6b6b6;
   margin: 2vh 2vh;
   /* 减少左右间距 */
   padding: 3vh;
@@ -179,7 +179,7 @@ h1 {
 .box3 {
   display: flex;
   align-items: center;
-  box-shadow: 0 0 0.5vh 0.3vh #eae9e9;
+  box-shadow: 0 0 0.5vh 0.2vh #b6b6b6;
   margin: 2vh 5vh;
   /* 减少左右间距 */
   padding: 3vh;

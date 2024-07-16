@@ -170,7 +170,7 @@ function scrollToCenter(id: string) {
   padding: 2vh;
   /* 调整为合适的尺寸 */
   height: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 2px rgb(183, 183, 183);
   background-color: white;
 }
 
@@ -229,10 +229,10 @@ function scrollToCenter(id: string) {
 }
 
 .teacher {
-  border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 2vh;
   background-color: white;
+  box-shadow: 1px 2px 2px 2px rgb(183, 183, 183);
 }
 
 .teacher-info {
