@@ -2,7 +2,7 @@
   <div class="container">
     <div class="background-layer"></div>
     <img src="../../statics/页面5/分组 1 (1).png" style="width: 100%;">
-    <div style="display: flex;justify-content: center;">
+    <div style="display: flex;">
       <Bread />
     </div>
     <div style="width: 90%;margin:0 auto;">
@@ -11,7 +11,8 @@
       <div class="pictureboxs">
         <div>
           <div class="picturebox">
-            <img src="../../statics/页面5/ada.png ">
+            <img src="../../statics/页面5/ada26c03-cd46-414c-83c4-ea9a7a8dd6d2.jpg（1）.png "
+              style="box-shadow: 0 4px 4px grey;">
           </div>
           <div style="text-align: center;color:#808080;margin: 1vh auto;font-size: 2vh;">
             大手牵小手“天文望远镜使用及户外观测实践”主题活动
@@ -19,7 +20,7 @@
         </div>
         <div>
           <div class="picturebox">
-            <img src="../../statics/页面5/people-2.png">
+            <img src="../../statics/页面5/people-219985_1280.jpg.png" style="box-shadow: 0 4px 4px grey;">
           </div>
           <div style="text-align: center;color:#808080;margin: 1vh auto;font-size: 2vh;">
             浙江省杭州银湖实验中学的“简易浮桥项目
@@ -46,7 +47,8 @@
       <div class="pictureboxs">
         <div>
           <div class="picturebox">
-            <img src="../../statics/页面5/d4683c4.png ">
+            <img src="../../statics/页面5/ada26c03-cd46-414c-83c4-ea9a7a8dd6d2.jpg.png "
+              style="box-shadow: 0 4px 4px grey;">
           </div>
           <div style="text-align: center;color:#808080;margin: 1vh auto;font-size: 2vh;">
             “科学素养提升行动”发布会在杭州市春晖小学举行
@@ -54,7 +56,7 @@
         </div>
         <div>
           <div class="picturebox">
-            <img src="../../statics/页面5/people.png">
+            <img src="../../statics/页面5/people-219985_1280.jpg（1）.png" style="box-shadow: 0 4px 4px grey;">
           </div>
           <div style="text-align: center;color:#808080;margin: 1vh auto;font-size: 2vh;">
             仙桃:延伸“航天课堂”点燃学生“飞天梦”
@@ -80,16 +82,17 @@
       </div>
       <h1 style="font-size:4.5vh;font-weight: 400;margin-top: 10vh;">研究成果</h1>
       <div class="bookbox">
-        <img src="../../statics/页面5/00400906258_c484af73.png.png" style="width: 18vw">
+        <img src="../../statics/页面5/00400906258_c484af73.png.png" class="responsive-img">
         <div style="margin:0 4vh;">
-          <h1>李沁璜老师领衔完成的高等教育研究报告《人力资源管理强度视域下贵州高职教师敬业度的提升策略研究》荣获2022年贵州省教育科学研究优秀成果奖一等奖。</h1>
+          <h1 style="font-size: 3vh;font-weight: 600">
+            李沁璜老师领衔完成的高等教育研究报告《人力资源管理强度视域下贵州高职教师敬业度的提升策略研究》荣获2022年贵州省教育科学研究优秀成果奖一等奖。</h1>
           <h2 style="font-size: 2vh;font-weight: 500;line-height: 5vh;">&emsp;&emsp;
             该研究提出了通过提高人力资源管理强度来提升教师敬业度的策略，为科学教育领域的教师管理提供了新思路。成果以贵州高职教师为研究对象，在文献分析的基础上，通过理论模型的构建和研究假设的提出，探讨了人力资源管理实施过程视角下的言职教师的敬业度提升策略。研究结果一方面为那些投入了大量资源进行人力资源制度建设，但实施效果不尽如人意的高职院校指明措施和实施并重的改革方向。一方面，可以改善人力资源管理从业人员的工作思路，引起他们对人力资源管理实践过程的重视。另外一方面，可以探索有效提升教师敬业度的激励措施。
           </h2>
         </div>
       </div>
       <div class="bookbox" style="margin-bottom: 7vh;">
-        <img src="../../statics/页面5/97e1eb50d838469f8c7187be5a99fcf6.jpg.png" style="width: 18vw">
+        <img src="../../statics/页面5/97e1eb50d838469f8c7187be5a99fcf6.jpg.png" class="responsive-img">
         <div style="margin:0 4vh;">
           <h1 style="height: 20%;"><a>王挺&emsp;</a><a
               style="font-weight:400 ;">主编&emsp;&emsp;</a><a>李秀菊&emsp;姚建兴&emsp;</a><a style="font-weight: 400">副主编</a>
@@ -102,11 +105,26 @@
       </div>
     </div>
     <div class="floating-buttons">
-      <button><img src="../../statics/页面5/在线客服.png"></button>
-      <button><img src="../../statics/页面5/邮件咨询.png"></button>
-      <button><img src="../../statics/页面5/电话咨询.png"></button>
-      <button><img src="../../statics/页面5/常见问题.png"></button>
-      <button><img src="../../statics/页面5/用户反馈.png"></button>
+      <div class="tooltip">
+        <button><img src="../../statics/页面5/在线客服.png"></button>
+        <span class="tooltiptext">在线客服</span>
+      </div>
+      <div class="tooltip">
+        <button><img src="../../statics/页面5/邮件咨询.png"></button>
+        <span class="tooltiptext">邮件咨询</span>
+      </div>
+      <div class="tooltip">
+        <button><img src="../../statics/页面5/电话咨询.png"></button>
+        <span class="tooltiptext">电话咨询</span>
+      </div>
+      <div class="tooltip">
+        <button><img src="../../statics/页面5/常见问题.png"></button>
+        <span class="tooltiptext">常见问题</span>
+      </div>
+      <div class="tooltip">
+        <button><img src="../../statics/页面5/用户反馈.png"></button>
+        <span class="tooltiptext">用户反馈</span>
+      </div>
     </div>
   </div>
 </template>
@@ -125,10 +143,10 @@ import Bread from '../components/Bread.vue';
   width: 100%;
   height: 100%;
   background-image: url('../../statics/页面2/标.jpg');
-  background-size: 80vh;
+  background-size: 110vh;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.3;
+  opacity: 0.2;
   z-index: -1;
 }
 
@@ -147,6 +165,15 @@ import Bread from '../components/Bread.vue';
   font-size: 4.5vh;
 }
 
+.responsive-img {
+  width: 70vh;
+  /* 让图片宽度等于其容器宽度 */
+  height: auto;
+  /* 高度自动调整以保持图片比例 */
+  object-fit: contain;
+  /* 确保图片等比缩放并完整显示 */
+}
+
 .pictureboxs {
   display: flex;
   justify-content: space-between;
@@ -154,12 +181,7 @@ import Bread from '../components/Bread.vue';
   margin-bottom: 3vh;
 }
 
-.picturebox {
-  overflow: hidden;
-  box-shadow: 0 0 1vh 0 rgba(0, 0, 0, 0.1);
-  margin: 0 2vh;
-  background-color: white;
-}
+
 
 .picturebox img {
   width: 100%;
@@ -199,18 +221,24 @@ import Bread from '../components/Bread.vue';
   padding: 0;
   background-color: white;
 }
+
 .container {
   /* 确保容器是相对定位的，这样绝对定位的子元素可以相对于它定位 */
   position: relative;
 }
 
 .floating-buttons {
-  position: fixed; /* 或使用absolute，取决于需求 */
-  right: 2vh; /* 距离右侧的距离 */
-  top: 50%; /* 垂直居中 */
-  transform: translateY(-20%); /* 使用transform来精确居中 */
+  position: fixed;
+  /* 或使用absolute，取决于需求 */
+  right: 2vh;
+  /* 距离右侧的距离 */
+  top: 50%;
+  /* 垂直居中 */
+  transform: translateY(-20%);
+  /* 使用transform来精确居中 */
   display: flex;
-  flex-direction: column; /* 纵向排列按钮 */
+  flex-direction: column;
+  /* 纵向排列按钮 */
   box-shadow: 0 0 3vh 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -219,9 +247,48 @@ import Bread from '../components/Bread.vue';
   cursor: pointer;
   height: 12vh;
   width: 10vh;
-  border: 0px ;
-  background-color:white;
+  border: 0px;
+  background-color: white;
   color: white;
   font-size: 2vh;
+  transition: 0.3s;
+}
+
+.floating-buttons button:hover {
+  /* 按钮样式 */
+  cursor: pointer;
+  height: 14vh;
+  width: 10vh;
+  border: 0px;
+  background-color: #0456B5;
+  color: white;
+  font-size: 2vh;
+  transition: 0.3s;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 12vh;
+  background-color:rgba(0, 0, 0, 0.8);
+  color: #A6A6A6;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: -1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -20vh;
+  margin-bottom: -7vh;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 </style>

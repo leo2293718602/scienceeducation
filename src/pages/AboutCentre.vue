@@ -1,7 +1,7 @@
 <template>
    <div class="background-layer"></div> 
   <img src="../../statics/页面2/banner.png" style="width: 100%;">
-  <div style="display: flex">
+  <div style="display: flex;">
     <bread />
   </div>
   <div style="display: flex;">
@@ -17,7 +17,7 @@
       求，特设浙江省中小学科学教育指导中心。
     </div>
     <div>
-      <img src="../../statics/页面2/R-C.jpg" style="width: 90%;padding-right:0vh ;">
+      <img src="../../statics/页面2/R-C.jpg" style="width: 90%;padding-right:0vh ;box-shadow: 0 4px 4px grey;">
     </div>
   </div>
   <div style="display: flex;">
@@ -28,7 +28,7 @@
     &emsp;&emsp;以习近平新时代中国特色社会主义思想为指导，聚焦立德树人根本任务，以构建大中小学一体化课程、创新人才培养和家校社协同育人三大体系为目标，统筹推进科学课程教学提质、科学教师队伍建设、创新人“十百千万”协同育人、城乡科学教育区域推进五大工程，实施实验教学“强基”、工程启蒙教才选育、育、“英才计划”扩面等系列行动，逐步形成党委政府统一领导、相关部门齐抓共管、校内校外共融共建的中小学科学教育新格局。通过3至5年努力，培育一批科学教育实验区、实验校和实验基地，涌现一批“小科学家”“小工程师”，打造一批有辨识度的科学教育特色品牌，全省中小学生的科学素养整体提升，全社会协同育人机制基本形成，科学教育在实施科教强省战略、培养创新人才中发挥重要的基础性作用。
   </div>
   <div style="display: flex;justify-content: center;margin-top: 2vh;margin-bottom: 4vh;">
-    <img src="../../statics/页面2/工作原则.png">
+    <img src="../../statics/页面2/工作原则.png" style="width: 70vw;">
   </div>
   <div style="display: flex;">
     <h1 class="blue-bar">&thinsp;</h1>
@@ -87,16 +87,16 @@
   </div>
   <div style="display:flex;justify-content: center;margin-bottom: 3vw;">
     <div class="box3">
-      <a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;">·</a>
+      <a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;margin-bottom:1vh ;">·</a>
       <a style="font-size: 3vh;">加强组织领导</a>
     </div>
-    <div class="box3"><a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;">·</a>
+    <div class="box3"><a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;margin-bottom:1vh;">·</a>
       <a style="font-size: 3vh;">强化各方协同</a>
     </div>
-    <div class="box3"><a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;">·</a>
+    <div class="box3"><a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;margin-bottom:1vh;">·</a>
       <a style="font-size: 3vh;">开展监测督导</a>
     </div>
-    <div class="box3"><a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;">·</a>
+    <div class="box3"><a style="font-size: 5vw;margin-left: 1.5vw;margin-right: 1vw;margin-bottom:1vh;">·</a>
       <a style="font-size: 3vh;">营造浓厚氛围</a>
     </div>
   </div>
@@ -158,7 +158,6 @@ h1 {
   /* 减少左右间距 */
   padding: 3vh;
   width: 32vw;
-  height: 16vw;
   background-color: white;
 }
 
@@ -196,10 +195,10 @@ h1 {
   width: 100%;
   height: 100%;
   background-image: url('../../statics/页面2/标.jpg');
-  background-size: 80vh;
+  background-size:110vh;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.3; /* 仅背景透明 */
+  opacity: 0.2; /* 仅背景透明 */
   z-index: -1; /* 确保背景在内容之下 */
 }
 

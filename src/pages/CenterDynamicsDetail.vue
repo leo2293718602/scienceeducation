@@ -7,7 +7,7 @@
     </div>
     <div v-if="article">
         <div style="display: flex;justify-content: center;"> <!-- 文章标题 -->
-            <h1 style="font-size: 5vh;width: 80%;font-weight: bolder;margin-top: 0;">{{ article.title }}</h1>
+            <h1 style="font-size: 4vh;width: 80%;font-weight: bolder;margin-top: 0;text-align: center;">{{ article.title }}</h1>
         </div>
         <div style="display: flex;justify-content: center;"><!--分割线-->
             <div style="background-color: black;width: 90%;height: 0.5vh;margin: 0 auto 3vh auto;"></div>

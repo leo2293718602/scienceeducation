@@ -2,9 +2,9 @@
   <div><img src="../../statics/页面1/9045.png" style="width: 100%;"></div>
   <div style="padding:0 10vh;">
     <div> <!--中心动态-->
-      <div style="display: flex;justify-content: space-between;">
+      <div style="display: flex;justify-content: space-between;margin-top: 3vh">
         <div class="iconandtitle">
-          <img src="../assets/UI_icon_工作动态.png">
+          <img src="../assets/UI_icon_工作动态.png" style="height: 8vh;">
           <a class="title" @click="goToPage('CenterDynamicsPage')">中心动态</a>
         </div>
         <div class="more">
@@ -31,7 +31,7 @@
       <div>
         <div style="display: flex;justify-content: space-between;width: 53vw;"> <!--信息发布-->
           <div class="iconandtitle">
-            <img src="../assets/打开信息.png">
+            <img src="../assets/打开信息.png" style="height: 8vh;">
             <a class="title">信息发布</a>
           </div>
           <div class="more">
@@ -55,7 +55,7 @@
 
       <div style="width: 57vh;margin-left: 3vh;"> <!--业务平台-->
         <div class="iconandtitle" style="margin-left: 13vh">
-          <img src="../assets/快速部署.png">
+          <img src="../assets/快速部署.png" style="height: 8vh;">
           <a class="title">业务平台</a>
         </div>
         <div class="card"
@@ -78,31 +78,35 @@
 
 
     <div style="margin-top: 3vh;"> <!--优秀案例-->
-  <div style="display: flex;justify-content: space-between;">
-    <div class="iconandtitle">
-      <img src="../assets/案例.png">
-      <a class="title">优秀案例</a>
+      <div style="display: flex;justify-content: space-between;">
+        <div class="iconandtitle">
+          <img src="../assets/案例.png" style="height: 8vh;">
+          <a class="title">优秀案例</a>
+        </div>
+        <div class="more">
+          更多>>
+        </div>
+      </div>
+      <div style="display: flex; width: 100%; justify-content: space-between; margin-top: 3vh;margin-bottom: 6vh;">
+        <div v-for="(caseItem, index) in GreatCases.slice(0, 3)" :key="index"
+          :style="{ flex: '1', marginRight: index < 2 ? '2%' : '0', boxSizing: 'border-box', padding: '20px', margin: '10px', backgroundColor: '#fff', boxShadow: '0 4px 4px rgba(0,0,0,0.1)' }">
+          <div style="position: relative; width: 100%; padding-top: 80%;"><!-- 保持方形 -->
+            <img :src="caseItem.img" :alt="caseItem.title"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="display: flex;justify-content: center;">
+            <a style="background-color: #0456B5;height: 2.5vh;margin-top: 3vh;width: 0.5vh;margin-right: 1.5vh;margin-left: 1vh;">&#8194;</a>
+            <h3 class="innertitle" style="text-align:left;">
+            {{ caseItem.title }}
+            </h3>
+          </div>
+          <p style="margin-left: 2vh;color: #A6A6A6;">{{ caseItem.date }}</p>
+        </div>
+      </div>
     </div>
-    <div class="more">
-      更多>>
-    </div>
-  </div>
-  <div style="display: flex; width: 100%; justify-content: space-between; margin-top: 3vh;margin-bottom: 6vh;">
-  <div v-for="(caseItem, index) in GreatCases.slice(0, 3)" :key="index"
-    :style="{ flex: '1', marginRight: index < 2 ? '2%' : '0', boxSizing: 'border-box', padding: '20px', margin: '10px', backgroundColor: '#fff', boxShadow: '0 4px 4px rgba(0,0,0,0.1)' }">
-    <div style="position: relative; width: 100%; padding-top: 80%;"><!-- 保持方形 -->
-      <img :src="caseItem.img" :alt="caseItem.title"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <h3 class="innertitle" style="text-align:center;">
-      <a style="background-color: #0456B5">&#8194;</a><a>&#8194</a>{{ caseItem.title }}</h3>
-    <p style="margin-left: 2vh;color: #A6A6A6;">{{ caseItem.date }}</p>
-  </div>
-</div>
-</div>
   </div>
   <div>
-    
+
   </div>
 </template>
 
@@ -152,11 +156,12 @@ function goToPage(pageName: string) {
 
 <style scoped>
 .title {
-  font-size: 4vh;
+  font-size: 5vh;
   margin-left: 2vh;
   font-weight: 400;
   cursor: pointer;
 }
+
 .title:hover {
   color: #0456B5;
 }
@@ -166,6 +171,7 @@ function goToPage(pageName: string) {
   display: flex;
   align-items: center;
   margin-top: 5vh;
+  font-size: 1.5vh
 }
 
 .more:hover {
@@ -176,9 +182,10 @@ function goToPage(pageName: string) {
 .card {
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 0 0.5vh 0.3vh #eae9e9;
   margin-top: 2vh;
   padding: 3vh;
+  border: 0.1vh solid #F5F5F5;
+  box-shadow: 2px 2px 2px rgb(183, 183, 183);
 }
 
 .news {

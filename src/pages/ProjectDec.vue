@@ -6,32 +6,27 @@
             <Bread />
         </div>
         <div style="display: flex;justify-content: center;">
-            <div style="display: flex;width:90%;justify-content:space-between;">
-                <div style="margin-right: 4vh;">
-                    <h1 style="font-size: 4vh;">常用工具</h1>
-                    <div class="box" style="width: 43vw;">
-                        <div style="display: flex;justify-content: space-around;">
-                            <div class="innerbox"  @click="noticesss">
-                                <img src="../../statics/页面6/画板 1.png" style="margin-left: 0.5vh;margin-top: 1vh">
-                                <h2 style="margin-bottom: 1vh;">申报指南</h2>
-                            </div>
-                            <div class="innerbox"  @click="noticesss">
-                                <img src="../../statics/页面6/编辑文档.png" style="margin-left: 1vh;margin-top: 1vh">
-                                <h2 style="margin-bottom: 1vh;margin-top: 2.7vh">申报说明</h2>
-                            </div>
-                            <div class="innerbox"  @click="noticesss">
-                                <img src="../../statics/页面6/问号.png" style="margin-left: 2vh;margin-top: 1vh">
-                                <h2 style="margin-bottom: 1vh;">常见问答</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div style="display: flex;width:91%;justify-content:space-between;">
                 <div>
-                    <h1 style="margin-right: 20vh;margin-bottom:8vh;width: 30vw;font-size: 4vh;">申报平台</h1>
-                    <div class="box2" style="display: flex;justify-content: center;"  @click="noticesss">
-                        <div style="display: flex;align-items: center;">
-                            <img src="../../statics/页面6/image.png.png">
-                            <a style="font-size: 4vh;margin-left: 5vh">浙江省科学教育申报平台</a>
+                    <h1 style="font-size: 5vh;">常用工具</h1>
+                    <div class="box" style="width: 89vw;height: 30vh;">
+                        <div style="display: flex;justify-content: space-around;">
+                            <div class="innerbox" @click="noticesss">
+                                <img src="../../statics/页面6/画板 1.png" style="margin-left: 1.5vh;margin-top: 1vh">
+                                <h2 style="margin-bottom: 1vh;font-size: 3vh;">申报指南</h2>
+                            </div>
+                            <div class="innerbox" @click="noticesss">
+                                <img src="../../statics/页面6/编辑文档.png" style="margin-left: 2vh;margin-top: 1vh">
+                                <h2 style="margin-bottom: 1vh;margin-top: 2.7vh;font-size: 3vh;">申报说明</h2>
+                            </div>
+                            <div class="innerbox" @click="noticesss">
+                                <img src="../../statics/页面6/问号.png" style="margin-left: 3vh;margin-top: 1vh">
+                                <h2 style="margin-bottom: 1vh;font-size: 3vh;">常见问答</h2>
+                            </div>
+                            <div class="innerbox" @click="noticesss">
+                                <img src="../../statics/页面6/image.png.png" style="margin-top: 1vh;width: 10vh;margin-left: 1vh">
+                                <h2 style="margin-bottom: 1vh;font-size: 3vh;">申报平台</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -42,13 +37,13 @@
                 <span class="underline-text">申报通知</span>
             </h1>
         </div>
-        <div>
+        <div style="box-shadow: 0 0 0.5vh 0.3vh #eae9e9;background-color: white;width: 90vw;margin: 0 auto; border: 0.1vh solid #a6a6a6;">
             <div v-for="(notice, index) in paginatedNotices" :key="index">
                 <!-- 显示notice的内容 -->
-                <div style="display: flex;margin-left: 10vh;font-size: 3.5vh;line-height: 3vh;cursor: pointer;"
+                <div style="display: flex;margin-left: 5vh;font-size: 3.5vh;line-height: 3vh;cursor: pointer;"
                     @click="noticesss">
-                    <p style="color: #0456B5;width: 3%;"> {{ index + 1 }}.</p>
-                    <p style="width: 72%;color:#0456B5;">{{ notice.title }}</p>
+                    <p style="color: black;width: 3%;"> {{ index + 1 }}.</p>
+                    <p style="width: 72%;color:black;">{{ notice.title }}</p>
                     <p style="width: 10%;">{{ notice.from }}</p>
                     <p style="color:#a6a6a6">{{ notice.time }}</p>
                 </div>
@@ -157,21 +152,21 @@ function noticesss() {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: white;
     cursor: pointer;
+    margin-top: 4vh
 }
 
 .custom-underline {
     margin-left: 10vh;
     margin-top: 10vh;
     font-size: 4vh;
-    color: #0456B5;
+    color: black;
     padding-bottom: 0.5vh;
     /* 移除原有的下划线样式 */
     margin-bottom: 5vh;
 }
 
 .underline-text {
-    border-bottom: 0.5vh solid #0456B5; /* 加粗的下划线 */
-    text-decoration: none; /* 移除原有的下划线 */
+    font-size: 5vh;
 }
 
 .pagination button,
@@ -226,10 +221,10 @@ function noticesss() {
     width: 100%;
     height: 100%;
     background-image: url('../../statics/页面2/标.jpg');
-    background-size: 80vh;
+    background-size: 110vh;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 0.2;
     z-index: -1;
 }
 
@@ -252,7 +247,8 @@ function noticesss() {
     transition: 0.3s;
     background-color: #a6a6a6
 }
-.box2:hover{
+
+.box2:hover {
     transform: scale(1.1);
     transition: 0.3s;
     background-color: #a6a6a6

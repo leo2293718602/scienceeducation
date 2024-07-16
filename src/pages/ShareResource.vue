@@ -314,6 +314,9 @@ function toggleMenu(index:any) {
 </script>
 
 <style>
+h3, h4 {
+  margin-top: 0;
+}
 .background-layer {
   position: fixed;
   top: 17vh;
@@ -321,10 +324,10 @@ function toggleMenu(index:any) {
   width: 100%;
   height: 100%;
   background-image: url('../../statics/页面2/标.jpg');
-  background-size: 80vh;
+  background-size: 110vh;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.3;
+  opacity: 0.2;
   z-index: -1;
 }
 

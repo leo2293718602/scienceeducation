@@ -17,7 +17,7 @@
     <div class="main-content">
       <!-- 主内容区域 -->
       <div style="display: flex;margin-left: 0">
-        <div style="width: 80%;margin-left: 8vw">
+        <div style="width: 90%;margin-left: 8vw">
           <div>
             <div style="display: flex;justify-content: space-between;margin-bottom: 8vh">
               <a  id="excellentCases" style="font-size: 4vh;font-weight: 600;">优秀案例</a>
@@ -114,12 +114,12 @@ function scrollToCenter(id: string) {
 
 .layout {
   display: flex;
-
+ 
 }
 
 .sidebar {
   margin-left: 5vw;
-  width: 20vw;
+  width: 10vw;
   /* 侧边栏宽度 */
   /* 侧边栏背景颜色 */
   display: flex;
@@ -276,10 +276,10 @@ function scrollToCenter(id: string) {
   width: 100%;
   height: 100%;
   background-image: url('../../statics/页面2/标.jpg');
-  background-size: 80vh;
+  background-size: 110vh;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.3;
+  opacity: 0.2;
   z-index: -1;
 }
 </style>

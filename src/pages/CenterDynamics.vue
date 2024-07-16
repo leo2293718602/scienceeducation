@@ -13,7 +13,7 @@
                 <img :src="article.img" alt="Article Image" class="article-img">
                 <div class="text-content">
                     <h3 class="title">{{ article.title }}</h3>
-                    <p style="color:#a6a6a6; margin-left: 2vh;">{{ article.date }}</p>
+                    <p style="color:#a6a6a6; font-size: 2.2vh">{{ article.date }}</p>
                     <p class="clamp-text">{{ article.inner }}</p>
                 </div>
             </div>
@@ -199,7 +199,6 @@ function goToArticle(id: number) {
     white-space: normal;
     color: gray;
     font-size: 2.5vh;
-    margin-left: 2vh;
 }
 
 .pagination {

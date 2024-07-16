@@ -18,7 +18,7 @@
             <div class="main-content">
                 <!-- 主内容区域 -->
                 <div style="display: flex;margin-left: 0">
-                    <div style="width: 80%;margin-left: 8vw">
+                    <div style="width: 90%;margin-left: 8vw">
                         <div>
                             <div style="display: flex;justify-content: space-between;margin-bottom: 8vh">
                                 <a id="pxkc" style="font-size: 4vh;font-weight: 600;"> <span
@@ -194,7 +194,7 @@ const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.nam
 
 .sidebar {
     margin-left: 5vw;
-    width: 20vw;
+    width: 10vw;
     /* 侧边栏宽度 */
     /* 侧边栏背景颜色 */
     display: flex;
