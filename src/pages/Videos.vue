@@ -4,10 +4,10 @@
             <div class="video-player">
                 <div class="video-header"> <!-- 添加类名 -->
                     <div class="video-title">{{ currentVideo?.title }}</div>
-                    <div class="grey-word">浏览量: {{ currentVideo?.watched }}</div>
+                    <div class="grey-word" style="width: 15vh;">浏览量: {{ formWatched(currentVideo?.watched) }}</div>
                     <div class="grey-word">发布时间: {{ currentVideo?.date }}</div>
                     <div class="share-button"><img src="/statics/页面10/分享.png"><a>分享</a></div>
-                    <div class="up-button"><img src="/statics/页面10/点赞.png"><a>{{ currentVideo?.liked }}</a></div>
+                    <div class="up-button"><img src="/statics/页面10/点赞.png"><a>{{ formatLikes(currentVideo?.liked) }}</a></div>
                 </div>
                 <video :src="currentVideo?.video" controls style="margin-top: 2vh;width: 60vw;"></video>
                 <div style="color:gray;font-size: 2vh;align-items: center;"> <a
@@ -71,6 +71,24 @@ watch(() => route.params.id, (newId) => {
       // 这里可以添加任何需要在ID变化时执行的代码
       // 例如，重新获取当前视频信息或相关推荐视频
     });
+function formatLikes(likes:any){
+    if(likes>=1000){
+        if(likes>=1000000){
+            return (likes/1000000).toFixed(1)+'M';
+        }
+        return (likes/1000).toFixed(1)+'K';
+    }
+        return likes;
+}
+function formWatched(watched:any){
+    if(watched>=1000){
+        if(watched>=1000000){
+            return (watched/1000000).toFixed(1)+'M';
+        }
+        return (watched/1000).toFixed(1)+'K';
+    }
+        return watched;
+}
 </script>
 
 <style scoped>
@@ -134,7 +152,8 @@ watch(() => route.params.id, (newId) => {
     border: 0.1vh solid #a6a6a6;
     padding: 1vh 3vh;
     border-radius: 3vh;
-    margin-left: 3vh
+    margin-left: 3vh;
+    width: 7vh;
 }
 
 .video-recommendations {
