@@ -65,7 +65,8 @@ watch(() => route.path, (newPath) => {
     activePage.value = baseRoute; // 保持 /parent 被选中
     localStorage.setItem('activePage', baseRoute);
   } else if (newPath === homeRoute) {
-    activePage.value = 'MainPage'; // 假设 'HomePage' 是首页的标识
+    activePage.value = 'MainPage'; 
+    localStorage.setItem('activePage', 'MainPage');
     localStorage.setItem('activePage', 'MainPage');
   }
 });

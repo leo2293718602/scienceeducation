@@ -30,7 +30,7 @@
                                 <div class="courses-grid">
                                     <div v-for="(course, index) in courses.slice(0, 4)" :key="index"
                                         class="course-item">
-                                        <img :src="course.img" alt="课程图片">
+                                        <img :src="course.img" alt="课程图片" @click="onhandlecourses()">
                                     </div>
                                 </div>
                             </div>
@@ -157,6 +157,10 @@ const downloads = ref([
     { id: 6, title: '《高等教育法规概论》课程教学大纲', date: '10-01', downloadsrc: 'www.mydownload.com' },
     { id: 7, title: '85期团员手册', date: '10-01', downloadsrc: 'www.mydownload.com' },
 ])
+function onhandlecourses() {
+    alert('点击成功')
+}
+
 function scrollToCenter(id: string) {
     const element = document.getElementById(id);
     if (element) {
@@ -249,6 +253,7 @@ const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.nam
     /* 使图片填满容器 */
     height: auto;
     /* 保持图片的原始宽高比 */
+    cursor: pointer;
 }
 
 .notices-grid {

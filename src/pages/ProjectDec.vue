@@ -51,8 +51,7 @@
         </div>
         <div style="display: flex;justify-content: center;margin: 5vh auto;">
             <div class="pagination">
-                <span style="font-size: 2.5vh;margin: 2vh">共{{ notices.length }}条记录 第{{ currentPage }}/{{ totalPages
-                    }}页</span>
+                <span style="font-size: 2.5vh;margin: 2vh">共{{ notices.length }}条记录 第{{ currentPage }}/{{ totalPages}}页</span>
                 <button @click="goToFirstPage" class="txt" :disabled="currentPage === 1">首页</button>
                 <button @click="prevPage" class="txt" :disabled="currentPage === 1">上一页</button>
                 <button @click="nextPage" class="txt" :disabled="currentPage === totalPages">下一页</button>

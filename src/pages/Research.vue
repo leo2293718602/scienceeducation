@@ -190,6 +190,10 @@ import Bread from '../components/Bread.vue';
   /* 图片高度填满容器 */
   object-fit: cover;
 }
+.picturebox{
+  padding: 2vh;
+  min-width:43vw;
+}
 
 .dot {
   font-size: 5vh;
@@ -259,7 +263,7 @@ import Bread from '../components/Bread.vue';
   cursor: pointer;
   height: 14vh;
   width: 10vh;
-  border: 0px;
+  border: none;
   background-color: #0456B5;
   color: white;
   font-size: 2vh;
@@ -290,5 +294,9 @@ import Bread from '../components/Bread.vue';
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.tooltip img{
+  width: 4vh;
 }
 </style>

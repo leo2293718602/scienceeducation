@@ -176,16 +176,10 @@ const chunkedVideos = computed(() => {
 
 .video h3 {
   white-space: nowrap;
-  /* 防止文本换行 */
   overflow: hidden;
-  /* 隐藏超出容器的内容 */
   text-overflow: ellipsis;
-  /* 超出部分显示... */
   font-size: 2vh;
-  /* 或者其他适合的字体大小 */
   margin: 1vh 2vh;
-  /* 根据需要调整 */
   padding: 0;
-  /* 根据需要调整 */
 }
 </style>
