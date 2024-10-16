@@ -167,11 +167,8 @@ import Bread from '../components/Bread.vue';
 
 .responsive-img {
   width: 70vh;
-  /* 让图片宽度等于其容器宽度 */
   height: auto;
-  /* 高度自动调整以保持图片比例 */
   object-fit: contain;
-  /* 确保图片等比缩放并完整显示 */
 }
 
 .pictureboxs {
@@ -185,9 +182,7 @@ import Bread from '../components/Bread.vue';
 
 .picturebox img {
   width: 100%;
-  /* 图片宽度填满容器 */
   height: 100%;
-  /* 图片高度填满容器 */
   object-fit: cover;
 }
 .picturebox{
@@ -227,27 +222,20 @@ import Bread from '../components/Bread.vue';
 }
 
 .container {
-  /* 确保容器是相对定位的，这样绝对定位的子元素可以相对于它定位 */
   position: relative;
 }
 
 .floating-buttons {
   position: fixed;
-  /* 或使用absolute，取决于需求 */
   right: 2vh;
-  /* 距离右侧的距离 */
   top: 50%;
-  /* 垂直居中 */
   transform: translateY(-20%);
-  /* 使用transform来精确居中 */
   display: flex;
   flex-direction: column;
-  /* 纵向排列按钮 */
   box-shadow: 0 0 3vh 0 rgba(0, 0, 0, 0.1);
 }
 
 .floating-buttons button {
-  /* 按钮样式 */
   cursor: pointer;
   height: 12vh;
   width: 10vh;
@@ -259,7 +247,6 @@ import Bread from '../components/Bread.vue';
 }
 
 .floating-buttons button:hover {
-  /* 按钮样式 */
   cursor: pointer;
   height: 14vh;
   width: 10vh;

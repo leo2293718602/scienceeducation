@@ -90,7 +90,7 @@
       <div style="display: flex; width: 100%; justify-content: space-between; margin-top: 3vh;margin-bottom: 6vh;">
         <div v-for="(caseItem, index) in GreatCases.slice(0, 3)" :key="index"
           :style="{ flex: '1', marginRight: index < 2 ? '2%' : '0', boxSizing: 'border-box', padding: '20px', margin: '10px', backgroundColor: '#fff', boxShadow: '1px 2px 2px 1.5px rgb(183, 183, 183)' }">
-          <div style="position: relative; width: 100%; padding-top: 80%;"><!-- 保持方形 -->
+          <div style="position: relative; width: 100%; padding-top: 80%;">
             <img :src="caseItem.img" :alt="caseItem.title"
               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
           </div>
@@ -112,45 +112,73 @@
 
 
 <script lang="ts" setup name="MainPage">
-import { ref, onMounted } from 'vue'
-import router from '../router/index'
-const CenterDynamics = ref([
-  { title: '国家知识产权局专利局来校开展普法宣传活动', img: '../../statics/页面1/1.png' },
-  { title: '经管学院:拓展交流渠道 提升国际合作', img: '../../statics/页面1/22.png' },
-  { title: '德方合作院校教授与学生交流', img: '../../statics/页面1/3.png' },
-  { title: '校统一战线开展“科大同心·初心引领”研学实训活动', img: '../../statics/页面1/4.png' },
-  { title: '离退休党委组织退休老干部开赴兄弟高校调研交流', img: '../../statics/页面1/5.png' },
-  { title: '我校学生在2024TNF100莫干山越野跑挑战赛获亚军', img: '../../statics/页面1/6.png' },
-  { title: '测试溢出', img: '../../statics/页面1/7.png' },
-])
-const Release = ref([
-  { title: '浙江省委省政府印发《浙江省深化新时代教育...', date: '09-02' },
-  { title: '浙江省发展和改革委员会 浙江省教育厅关于印...', date: '06-28' },
-  { title: '浙江省教育厅等十四部门关于加强新时代中小...', date: '01-23' },
-  { title: '扎实推动《基础教育课程教学改革深化行动方...', date: '04-26' },
-  { title: '浙江省教育厅等九部门关于进一步做好义务教...', date: '08-26' },
-  { title: '浙江省委省政府印发《浙江省深化新时代教育...', date: '09-02' },
-  { title: '浙江省教育厅等十四部门关于加强新时代中小...', date: '01-23' },
-])
-const GreatCases = ref([
-  { title: '教育部启动首批全国中小学科学教育实验区实验校建设', date: '2023-12-25', img: '/statics/页面1/2.png' },
-  { title: '浙江宁波创建“4321”工作体系 推动区域科学教育高品质发展', date: '2024-01-23', img: '/statics/页面1/4.webp' },
-  { title: '打造高质量科学教育，“科学素养提升行动发布会在杭州市春晖小学举行', date: '2024-02-22', img: '/statics/页面1/5.jpg' },
+import { ref, onMounted } from 'vue';
+import router from '../router/index';
+import { getCenterdynamicsList, getGreatcasesList, getReleaseList } from '../api/article';
 
-])
+const CenterDynamics = ref([{ img:'', title: '', date: '' }]);
+const Release = ref([{ img: '', title: '', date: '' }]);
+const GreatCases = ref([{ img: '', title: '', date: '' }]);
 const selectedItemImg = ref('');
+
+
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('zh-CN', {
+        month: '2-digit',
+        day: '2-digit'
+    });
+};
+const fetchCenterDynamics = async () => {
+    try {
+        const res = await getCenterdynamicsList({});
+        CenterDynamics.value = res.map((item: any) => ({
+            ...item,
+            date: formatDate(item.date)
+        }));
+        console.log('CenterDynamics:', CenterDynamics.value);
+    } catch (error) {
+        console.error('Error fetching Center Dynamics:', error);
+    }
+};
+
+const fetchRelease = async () => {
+    try {
+        const res = await getReleaseList({});
+        Release.value = res.map((item: any) => ({
+            ...item,
+            date: formatDate(item.date)
+        }));
+    } catch (error) {
+        console.error('Error fetching Release:', error);
+    }
+};
+
+const fetchGreatCases = async () => {
+    try {
+        const res = await getGreatcasesList({});
+        GreatCases.value = res.map((item: any) => ({
+            ...item,
+            date: formatDate(item.date)
+        }));
+    } catch (error) {
+        console.error('Error fetching Great Cases:', error);
+    }
+};
+
 onMounted(() => {
-  if (CenterDynamics.value.length > 0) {
-    selectedItemImg.value = CenterDynamics.value[0].img; // 默认选中第一个  
-  }
+    fetchCenterDynamics();
+    fetchRelease();
+    fetchGreatCases();
+    if (CenterDynamics.value.length > 0) {
+        selectedItemImg.value = CenterDynamics.value[0].img; // 默认选中第一个  
+    }
 });
 
 function goToPage(pageName: string) {
-  router.push(
-    {
-      name: pageName
-    }
-  )
+    router.push({
+        name: pageName
+    });
 }
 </script>
 

@@ -41,8 +41,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { getVideosList } from '../api/article';
 
 const firstRowFilters = ref([
   { id: 1, name: '人气排序', selected: false },
@@ -82,18 +83,7 @@ const router = useRouter();
 const navigateToVideoPage = (id: number) => {
   router.push({ name: 'VideosPage', params: { id: id.toString() } });
 }
-const videos = ref([
-    { id: 1, type: '1', date: '2024-1-1', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了dasdsadasdsadasd...dadwdzDsada》', watched: 251, liked: 15, content: '本视频是关于视频是关于科视频关于科视频是v是关于科科教版三年级下《茧种钻dasdsadasdasdsadaasddasdsadasdsadsadsaas出了..dsadsada.dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-1.png' },
-    { id: 2, type: '2', date: '2024-1-12', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 123, liked: 5, content: '本视频是关于科教版三年级下《茧种钻出了dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-2.png' },
-    { id: 3, type: '2', date: '2024-1-11', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》rwredasdasdasdaswrewrwe', watched: 121, liked: 1521, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-3.png' },
-    { id: 4, type: '1', date: '2024-1-9', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 232151, liked: 152, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-4.png' },
-    { id: 5, type: '2', date: '2024-1-8', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 23251, liked: 1532312, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-5.png' },
-    { id: 6, type: '1', date: '2024-1-7', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 23231, liked: 15321, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-6.png' },
-    { id: 7, type: '1', date: '2024-1-6', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 251, liked: 1, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-7.png' },
-    { id: 8, type: '1', date: '2024-1-5', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 2251, liked: 112, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-8.png' },
-    { id: 9, type: '1', date: '2024-1-4', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 2351, liked: 1325, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-9.png' },
-    { id: 10, type: '1', date: '2024-1-3', video: '../../static/1.mp4', title: '【说课】科教版三年级下《茧种钻出了...dadwdzDsada》', watched: 1, liked: 1533, content: '本视频是关于科教版三年级下《茧种钻出了...dadwdzDsada》的说课视频，由北京市海淀区清华附小的李老师为大家讲解。', img: '../../statics/页面9/page9-1.png' },
-])
+const videos = ref([{id: 1, img: '', title: '', content: '', watched: 0, liked: 0, date: ''}]);
 const chunkedVideos = computed(() => {
   const result = [];
   const videosArray = videos.value;
@@ -102,6 +92,19 @@ const chunkedVideos = computed(() => {
   }
   return result;
 });
+
+const fetchVideos = async () => {
+  try {
+    const response = await getVideosList({});
+    videos.value = response;
+  } catch (error) {
+    console.error('Error fetching videos:', error);
+  }
+}
+
+onMounted(() => {
+  fetchVideos();
+})
 
 </script>
 
@@ -140,7 +143,6 @@ const chunkedVideos = computed(() => {
 .video-row {
   display: flex;
   justify-content: flex-start;
-  /* 默认左对齐 */
   margin-bottom: 20px;
 }
 
@@ -155,7 +157,6 @@ const chunkedVideos = computed(() => {
 
 .single-video {
   flex-basis: 100%;
-  /* 如果只有一个视频，占满整行 */
 }
 
 .video-img {

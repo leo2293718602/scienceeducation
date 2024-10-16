@@ -28,9 +28,9 @@
                             </div>
                             <div>
                                 <div class="courses-grid">
-                                    <div v-for="(course, index) in courses.slice(0, 4)" :key="index"
+                                    <div v-for="(video, index) in videos.slice(0, 4)" :key="index"
                                         class="course-item">
-                                        <img :src="course.img" alt="课程图片" @click="onhandlecourses()">
+                                        <img :src="video.img" alt="课程图片" @click="onhandlecourses(video)">
                                     </div>
                                 </div>
                             </div>
@@ -78,87 +78,29 @@
 
 <script lang="ts" setup>
 import Bread from '../components/Bread.vue';
-import { ref ,computed} from 'vue';
+import { getVideosList,getdownloadsList,gettrannoticesList } from '../api/article';
+import { ref ,computed, onMounted} from 'vue';
 import { useRoute } from 'vue-router';
+import router from '../router';
 
-const courses = ref([
-    {
-        id: 1,
-        title: '课程1',
-        date: '2023-10-01',
-        content: '课程1内容',
-        img: '../../statics/页面8/page8-1.png'
-    },
-    {
-        id: 2,
-        title: '课程2',
-        date: '2023-10-02',
-        content: '课程2内容',
-        img: '../../statics/页面8/page8-2.png'
-    },
-    {
-        id: 3,
-        title: '课程3',
-        date: '2023-10-03',
-        content: '课程3内容',
-        img: '../../statics/页面8/page8-4.png'
-    },
-    {
-        id: 4,
-        title: '课程4',
-        date: '2023-10-04',
-        content: '课程4内容',
-        img: '../../statics/页面8/page8-5.png'
-    },
-    {
-        id: 5,
-        title: '课程5',
-        date: '2023-10-05',
-        content: '课程5内容',
-        img: '../../statics/页面8/page8-1.png'
-    },
-])
+const videos = ref([{img:'',id:''}])
 const trannotices = ref([
     {
-        id: 1,
-        title: '2023年“全国科学教育暑期学校”中小学教师培训',
-        date: '2023年7月中旬至8月下旬',
-        place: '北京和11个中国科学院地方分院系统单位所在城市',
-        inner: '邀请院士、科普工作者、教育专家等作主题报告，通过专题讲座、现场教学、研究探索等形式，为全国中小学教师开展为期6天的科学教育培训.'
-    },
-    {
-        id: 2,
-        title: '2023年“全国科学教育暑期学校”中小学教师培训',
-        date: '2023年7月中旬至8月下旬',
-        place: '北京和11个中国科学院地方分院系统单位所在城市',
-        inner: '邀请院士、科普工作者、教育专家等作主题报告，通过专题讲座、现场教学、研究探索等形式，为全国中小学教师开展为期6天的科学教育培训.'
-    },
-    {
-        id: 3,
-        title: '2023年“全国科学教育暑期学校”中小学教师培训',
-        date: '2023年7月中旬至8月下旬',
-        place: '北京和11个中国科学院地方分院系统单位所在城市',
-        inner: '邀请院士、科普工作者、教育专家等作主题报告，通过专题讲座、现场教学、研究探索等形式，为全国中小学教师开展为期6天的科学教育培训.'
-    },
-    {
-        id: 4,
-        title: '2023年“全国科学教育暑期学校”中小学教师培训',
-        date: '2023年7月中旬至8月下旬',
-        place: '北京和11个中国科学院地方分院系统单位所在城市',
-        inner: '邀请院士、科普工作者、教育专家等作主题报告，通过专题讲座、现场教学、研究探索等形式，为全国中小学教师开展为期6天的科学教育培训.'
+        title: '',
+        date: '',
+        place: '',
+        inner: ''
     }
 ])
 const downloads = ref([
-    { id: 1, title: '85期团员手册', date: '10-01', downloadsrc: 'www.mydownload.com' },
-    { id: 2, title: '单位缴费信息发票统计表', date: '10-01', downloadsrc: 'www.mydownload.com' },
-    { id: 3, title: '《高等学校教师职业道德修养》课程教学大纲', date: '10-01', downloadsrc: 'www.mydownload.com' },
-    { id: 4, title: '《高等教育学》课程教学大纲', date: '10-01', downloadsrc: 'www.mydownload.com' },
-    { id: 5, title: '《高等教育心理学》课程教学大纲', date: '10-01', downloadsrc: 'www.mydownload.com' },
-    { id: 6, title: '《高等教育法规概论》课程教学大纲', date: '10-01', downloadsrc: 'www.mydownload.com' },
-    { id: 7, title: '85期团员手册', date: '10-01', downloadsrc: 'www.mydownload.com' },
+    {
+        title: '',
+        date: '',
+        downloadsrc: ''
+    }
 ])
-function onhandlecourses() {
-    alert('点击成功')
+function onhandlecourses(   video: any) {
+   router.push({name:'VideosPage',params:{id:video.id}})
 }
 
 function scrollToCenter(id: string) {
@@ -174,21 +116,64 @@ function scrollToCenter(id: string) {
 }
 const route = useRoute();
 const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.name !== 'VideosPage');
+
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${month}-${day}`;
+};
+
+const fetchVideos = async () => {
+     try{
+        const res = await getVideosList({});
+        videos.value = res;
+        console.log(videos.value);
+     }
+        catch(err){
+            console.log(err);
+        }
+}
+
+const fetchtrannotices = async () => {
+    try{
+        const res = await gettrannoticesList({});
+        trannotices.value = res;
+        console.log(trannotices.value);
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+const fetchdownloads = async () => {
+    try {
+        const res = await getdownloadsList({});
+        downloads.value = res.map((item: any) => ({
+            ...item,
+            date: formatDate(item.date)
+        }));
+    } catch (error) {
+        console.error('Error fetching downloads:', error);
+    }
+}
+
+
+onMounted(() => {
+    fetchVideos();
+    fetchtrannotices();
+    fetchdownloads();
+})
 </script>
 
 <style>
 .blue-block {
     display: inline-block;
     width: 0.7vh;
-    /* 方块的宽度 */
     height: 5vh;
-    /* 方块的高度 */
     background-color: #0456B5;
-    /* 方块的背景色 */
     margin-right: 5px;
-    /* 与文字之间的间距 */
     vertical-align: middle;
-    /* 垂直居中对齐 */
 }
 
 .layout {
@@ -199,35 +184,27 @@ const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.nam
 .sidebar {
     margin-left: 5vw;
     width: 10vw;
-    /* 侧边栏宽度 */
-    /* 侧边栏背景颜色 */
     display: flex;
 }
 
 .main-content {
     flex-grow: 1;
-    /* 主内容区域占据剩余空间 */
 }
 
 .sidebar ul {
     list-style: none;
-    /* 移除列表标记 */
     padding: 0;
     margin: 0;
-    /* 确保没有默认的外边距 */
 
 }
 
 .sidebar ul li {
     display: block;
-    /* 确保每个列表项是块级元素，占据一整行 */
 }
 
 .sidebar ul li a {
     display: block;
-    /* 确保链接是块级元素，占据一整行 */
     text-decoration: none;
-    /* 移除链接下划线 */
     width: 21vh;
     font-size: 3.5vh;
     margin-bottom: 8vh;
@@ -236,23 +213,18 @@ const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.nam
 
 .sidebar ul li a:hover {
     color: #0456B5;
-    /* 鼠标悬停背景颜色 */
 }
 
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* 创建两列 */
     grid-gap: 20px;
-    /* 设置网格间距 */
     margin-bottom: 8vh;
 }
 
 .course-item img {
     width: 100%;
-    /* 使图片填满容器 */
     height: auto;
-    /* 保持图片的原始宽高比 */
     cursor: pointer;
 }
 
@@ -289,19 +261,16 @@ const showLayout = computed(() => route.name !== 'TrainCoursesPage' && route.nam
     font-size: 2.5vh;
     font-weight: 500;
     color: black;
-    /* 基础颜色 */
     padding: 2.5vh 0px;
-    /* 内边距 */
     text-decoration: none;
-    /* 去除下划线 */
 }
 
 .downloads-grid a:hover {
     color: #0456B5;
-    /* 鼠标悬停颜色 */
 }
 .more{
     text-decoration: none;
     color: black;
 }
+
 </style>

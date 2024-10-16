@@ -11,6 +11,8 @@ import TeacherTrian from '../pages/TeacherTrian.vue'
 import TrainCourses from '../pages/TrainCourses.vue'
 import Videos from '../pages/Videos.vue'
 import ShareResource from '../pages/ShareResource.vue'
+import Admin from '../pages/Admin.vue'
+import AdminLogin from '../pages/AdminLogin.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -89,6 +91,18 @@ const router = createRouter({
             path: '/ShareResource',
             component: ShareResource,
             meta: { breadcrumb: '共享资源' }
+        },
+        {
+            name:'AdminPage',
+            path:'/Admin',
+            component:Admin,
+            meta:{breadcrumb:'后台管理'}
+        },
+        {
+            name:'AdminLoginPage',
+            path:'/AdminLogin',
+            component:AdminLogin,
+            meta:{breadcrumb:'后台登录'}
         }
     ]
 })

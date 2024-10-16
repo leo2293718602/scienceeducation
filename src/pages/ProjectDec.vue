@@ -40,7 +40,7 @@
         <div style="box-shadow: 2px 2px 2px rgb(183, 183, 183);background-color: white;width: 90vw;margin: 0 auto; border: 0.1vh solid #a6a6a6;">
             <div v-for="(notice, index) in paginatedNotices" :key="index">
                 <!-- 显示notice的内容 -->
-                <div style="display: flex;margin-left: 5vh;font-size: 3.5vh;line-height: 3vh;cursor: pointer;"
+                <div style="display: flex;margin-left: 5vh;font-size: 3vh;line-height: 3vh;cursor: pointer;"
                     @click="noticesss">
                     <p style="width: 3%"> {{ index + 1 }}.</p>
                     <p class="noticeblue" style="width: 72%">{{ notice.title }}</p>
@@ -66,23 +66,18 @@
 </template>
 
 <script lang="ts" setup name="">
-import { ref, computed } from 'vue'
+import { ref, computed,onMounted } from 'vue'
+import { getNoticesList } from '../api/article';
 import Bread from '../components/Bread.vue';
-const notices = ref([
-    { title: "2024年度全国教育科学规划项目申报公告", from: '教育部', time: '2024-04-30' },
-    { title: "2024年度国家社科基金教育学重大项目招标公告", from: '教育部', time: '2024-04-30' },
-    { title: "关于开展国家社科基金教育学重大重点项目中期检查评估的通知", from: '教育部', time: '2024-03-25' },
-    { title: "关于做好2024年度《国家哲学社会科学成果文库》教育学科申报工作的通知", from: '教育部', time: '2024-03-12' },
-    { title: "关于在全国教育科学规划管理平台上提交和审核在研项目相关材料的通知", from: '教育部', time: '2023-12-26' },
-    { title: "关于推荐全国教育科学规划专家库专家人选的通知", from: '教育部', time: '2023-11-30' },
-    { title: "关于征集国家社科基金教育学2024年度重大、重点项目选题的通知", from: '教育部', time: '2023-11-20' },
-    { title: "全国教育科学“十四五”规划2023年度课题立项名单公布", from: '教育部', time: '2023-08-28' },
-    { title: "关于清理2018年度全国教育科学规划未结项课题的通知", from: '教育部', time: '2023-06-13' },
-    { title: "2023年度国家社科基金教育学重大项目招标公告", from: '教育部', time: '2023-05-05' },
-    { title: "每10页翻页一次", from: '教育部', time: '2024-04-30' },
-])
+const notices = ref([{id:1,title:'申报通知',from:'教育局',time:'2021-10-10'}])
 const currentPage = ref(1)
 const itemsPerPage = 10
+
+const formatDate = (date: string) => {
+    const d = new Date(date)
+    return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+}
+
 // 计算总页数
 const totalPages = computed(() => {
     return Math.ceil(notices.value.length / itemsPerPage)
@@ -123,9 +118,25 @@ function goToPage(pageNumber: number) {
     currentPage.value = page;
 }
 
+const fetchNotices = async () => {
+    try {
+        const res = await getNoticesList({});
+        notices.value = res.map((item: any) => ({
+            ...item,
+            time: formatDate(item.time)
+        }));
+    } catch (error) {
+        console.error('Error fetching Notices:', error);
+    }
+};
+
 function noticesss() {
     alert('点击成功')
 }
+
+onMounted(() => {
+    fetchNotices();
+})
 </script>
 
 <style scoped>
@@ -159,7 +170,6 @@ function noticesss() {
     font-size: 4vh;
     color: black;
     padding-bottom: 0.5vh;
-    /* 移除原有的下划线样式 */
     margin-bottom: 5vh;
 }
 
@@ -208,7 +218,6 @@ function noticesss() {
 
 .content-layer {
     position: relative;
-    /* 确保内容在背景之上 */
 }
 
 .background-layer {
@@ -239,7 +248,6 @@ function noticesss() {
 }
 
 .innerbox:hover {
-    /*放大1.1倍*/
     transform: scale(1.1);
     transition: 0.3s;
     background-color: #a6a6a6

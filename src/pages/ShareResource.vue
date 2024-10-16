@@ -348,48 +348,46 @@ h3, h4 {
   font-size: 1.5vh;
 }
 .sidebar {
-  width: 250px; /* 侧边栏宽度 */
-  padding: 20px; /* 侧边栏内边距 */
+  width: 250px; 
+  padding: 20px; 
 }
 
 /* 顶级菜单项样式 */
 .sidebar ul {
-  list-style: none; /* 移除列表项目的标记 */
-  padding: 0; /* 移除列表的内边距 */
-  margin: 0; /* 移除列表的外边距 */
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
 }
 
 .sidebar li {
-  padding: 10px; /* 列表项内边距 */
-  cursor: pointer; /* 鼠标悬停时的指针样式 */
+  padding: 10px; 
+  cursor: pointer; 
 }
-
 /* 子菜单样式 */
 /* 子菜单项样式 */
 .sidebar li ul li {
-  position: relative; /* 设置相对定位，为伪元素定位提供基准 */
-  padding: 5px 10px; /* 子菜单项的内边距 */
-  margin-bottom: 2px; /* 子菜单项之间的间距 */
+  position: relative; 
+  padding: 5px 10px; 
+  margin-bottom: 2px; 
   font-size: 3vh;
   margin: 2vh 0vh;
-  transition: background-color 0.3s; /* 背景颜色的过渡效果 */
+  transition: background-color 0.3s; 
   padding-left: 2vh;
 }
 
 .sidebar li ul li:hover {
-  background-color: #f0f0f0; /* 鼠标悬停时的背景颜色 */
+  background-color: #f0f0f0;
 }
 
-/* 子菜单项hover时前方的蓝色方块 */
 .sidebar li ul li:hover::before {
-  content: ""; /* 伪元素需要content属性，即使没有内容 */
-  position: absolute; /* 绝对定位，相对于其父元素（li） */
-  left: 0; /* 位于父元素的最左侧 */
-  top: 50%; /* 垂直居中 */
-  transform: translateY(-50%); /* 确保完全居中 */
-  width: 0.6vh; /* 方块的宽度 */
-  height: 5vh; /* 方块的高度 */
-  background-color: #0456B5; /* 方块的背景颜色 */
+  content: "";
+  position: absolute; 
+  left: 0; 
+  top: 50%; 
+  transform: translateY(-50%);
+  width: 0.6vh; 
+  height: 5vh; 
+  background-color: #0456B5; 
 }
 .triangle-right::before {
   content: "";
@@ -397,10 +395,10 @@ h3, h4 {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 10px 0 10px 17.4px; /* 将原来的宽度放大2倍 */
+  border-width: 10px 0 10px 17.4px; 
   border-color: transparent transparent transparent black;
   margin-right: 5px;
-  vertical-align: middle; /* 使三角形与文字垂直居中对齐 */
+  vertical-align: middle; 
 }
 
 .triangle-down::before {
@@ -409,9 +407,9 @@ h3, h4 {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 17.4px 10px 0 10px; /* 将原来的宽度放大2倍 */
+  border-width: 17.4px 10px 0 10px;
   border-color: black transparent transparent transparent;
   margin-right: 5px;
-  vertical-align: middle; /* 使三角形与文字垂直居中对齐 */
+  vertical-align: middle;
 }
 </style>

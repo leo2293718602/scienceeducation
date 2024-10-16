@@ -103,7 +103,6 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onBeforeUnmount } from 'vue';
 import Bread from '../components/Bread.vue';
 </script>
 
@@ -124,9 +123,7 @@ h1 {
   margin-right: 1vh;
   margin-top: 3.5vh;
   width: 1vh;
-  /* 或者你想要的任何宽度 */
   height: 5vh;
-  /* 与文字等高 */
 }
 
 .title {
@@ -134,7 +131,6 @@ h1 {
   font-weight: 500;
   line-height: 1;
   font-weight: 600;
-  /* 调整行高以确保与蓝色条等高 */
 }
 
 .box1 {
@@ -143,7 +139,6 @@ h1 {
   box-shadow: 0 0 0.5vh 0.2vh #b6b6b6;
   margin-top: 3vh;
   margin-left: 2vh;
-  /* 减少左右间距 */
   margin-right: 2vh;
   padding: 3vh;
   width: 25vw;
@@ -155,7 +150,6 @@ h1 {
   flex-direction: column;
   box-shadow: 0 0 0.5vh 0.2vh #b6b6b6;
   margin: 2vh 2vh;
-  /* 减少左右间距 */
   padding: 3vh;
   width: 32vw;
   background-color: white;
@@ -181,7 +175,6 @@ h1 {
   align-items: center;
   box-shadow: 0 0 0.5vh 0.2vh #b6b6b6;
   margin: 2vh 5vh;
-  /* 减少左右间距 */
   padding: 3vh;
   width: 15vw;
   height: 6vh;
@@ -189,7 +182,7 @@ h1 {
   background-color: white;
 }
 .background-layer {
-  position: fixed; /* 或 absolute，取决于需求 */
+  position: fixed;
   top: 17vh;
   left: 0;
   width: 100%;
@@ -198,11 +191,11 @@ h1 {
   background-size:110vh;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.2; /* 仅背景透明 */
-  z-index: -1; /* 确保背景在内容之下 */
+  opacity: 0.2;
+  z-index: -1;
 }
 
 .content-layer {
-  position: relative; /* 确保内容在背景之上 */
+  position: relative;
 }
 </style>
